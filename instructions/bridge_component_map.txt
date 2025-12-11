@@ -1,0 +1,263 @@
+BRIDGE513 – HOME PAGE: REACT COMPONENT MAP
+=========================================
+
+App
+└── BridgeLayout
+    ├── <Header />
+    ├── <MainContent />
+    └── <Footer />
+
+Header
+------
+<Header>
+  ├── <TopBar /> (hidden/unused on this demo – reserved for announcements)
+  └── <HeaderMain>
+        ├── <Logo />
+        ├── <PrimaryNav />
+        ├── <HeaderActions />
+        └── <MobileMenuToggle />
+
+<Logo>
+  - Displays brand mark “Bridge”
+  - Links to "/"
+
+<PrimaryNav>
+  - Items:
+    - Home
+    - About Us
+    - Our Stores
+    - Shop
+    - Blog
+  - Desktop: horizontal list
+  - Mobile: collapsible vertical list inside <MobileNavDrawer />
+
+<HeaderActions>
+  - <SearchToggle />
+  - <CartPreview />
+    - Empty state text: “No products in the cart.”
+    - Mini-cart dropdown with product list when items present
+
+<MobileNavDrawer>
+  - Controlled by <MobileMenuToggle />
+  - Contains duplicated <Logo>, navigation links, and possibly search/cart icons
+
+
+MainContent
+-----------
+<MainContent>
+  ├── <HeroFeatureStrip />
+  ├── <ProductGridSection />
+  ├── <DesignersHighlight />
+  ├── <BlogPreviewSection />
+  ├── <WorkshopPromoSection />
+  ├── <GalleryStrip />
+  ├── <FooterWidgetArea /> (conceptually part of footer, but structurally at bottom of page)
+  └── (potential: <NewsletterBar /> / promotional blocks)
+
+HeroFeatureStrip
+----------------
+<HeroFeatureStrip>
+  - Three “card” style feature blocks in a row (desktop)
+  - Stacked vertically on mobile
+
+  <HeroFeatureCard />
+    props:
+      - title: string
+      - subtitle: string (short descriptive line)
+      - linkLabel: "learn more"
+      - linkHref: URL (currently /shop or relevant internal links)
+      - image: hero illustration/ceramics
+
+    instances:
+      1. "INSPIRED BY THE SEA"
+      2. "CREATED WITH LOVE"
+      3. "TOUCHED BY THE NATURE"
+
+
+ProductGridSection
+------------------
+<ProductGridSection>
+  - Title is visually implicit (“Best Sellers” / product listing feel)
+  - Contains a grid of WooCommerce products
+
+  structure:
+    <SectionHeader>
+      - Optional kicker text
+      - Optional title (currently not explicitly rendered as heading text in snippet)
+
+    <ProductGrid>
+      - Responsive layout:
+        - Desktop: 3–4 columns
+        - Tablet: 2–3 columns
+        - Mobile: 1–2 columns
+
+      <ProductCard />
+        props:
+          - imageSrc
+          - title
+          - price
+          - productUrl
+          - isOnSale? (not visible here but theme supports)
+          - wishlistEnabled? (true)
+        children:
+          - <ProductImage />
+          - <WishlistButton label="Add to wishlist" />
+          - <ProductTitle /> (e.g., "Rose Oval Plate")
+          - <ProductPrice /> (e.g., "$300.00")
+          - <AddToCartButton label="Add to cart" />
+
+    <SectionFooter>
+      - <ViewAllButton label="VIEW ALL" href="/shop" />
+
+
+DesignersHighlight
+------------------
+<DesignersHighlight>
+  - Text-led introduction to designers “EVA & NINA”
+  - One-column text block with supporting visual
+
+  structure:
+    <SectionHeader>
+      - <SectionKicker /> (optional)
+      - <SectionTitle> "MEET DESIGNERS EVA & NINA"
+      - <SectionSubtitle> (short lorem ipsum paragraph)
+
+    <SectionBody>
+      - <ReadMoreButton label="READ MORE" href="/about-us" />
+      - <DesignersImage /> (hero or portrait, depending on layout)
+
+
+BlogPreviewSection
+------------------
+<BlogPreviewSection>
+  - 3-column blog teaser layout
+
+  structure:
+    <SectionHeader>
+      - <SectionTitle> (implicit/hidden, e.g., “From Our Blog”)
+
+    <BlogCardGrid>
+      <BlogCard />
+        props:
+          - thumbnailImageSrc
+          - title
+          - authorName
+          - date
+          - href
+
+        children (example data):
+          - thumbnail: "Image: g", "Image: h", etc.
+          - title:
+              1. "Japan Design 2023: Handmade Ceramic Ideas"
+              2. "London Design 2023: Make Unique Handmade Mugs"
+              3. "Japan Design 2023: Color Inspo For All Visual Arts"
+          - author: "Nina Marling"
+          - date: 14–15 December, 2023
+
+
+WorkshopPromoSection
+--------------------
+<WorkshopPromoSection>
+  - Text + CTA section encouraging sign-ups for studio workshops
+
+  structure:
+    <SectionHeader>
+      - <SectionTitle> "WORKSHOP IN OUR CERAMIC STUDIO"
+      - <SectionSubtitle> short lorem ipsum paragraph
+
+    <SectionBody>
+      - <PrimaryButton label="APPLY NOW" href="/contact" or dedicated workshop page />
+      - <WorkshopImageStrip />
+          - 3–4 small decorative images (studio/people/ceramics)
+
+
+GalleryStrip (could also be InstagramFeedSection)
+-------------------------------------------------
+<GalleryStrip>
+  - 3–4 (or more) images in a horizontal, masonry-style or equal-grid layout
+
+  <GalleryItem />
+    props:
+      - imageSrc
+      - href (if using as Instagram link or lightbox)
+      - overlayEnabled?
+
+    features:
+      - Hover overlay icon (e.g., view or Instagram icon)
+      - Responsive wrapping on small screens
+
+
+FooterWidgetArea + Footer
+-------------------------
+<Footer>
+  ├── <FooterWidgets />
+  └── <FooterBottom />
+
+<FooterWidgets>
+  - Multi-column widget area
+
+  columns (approx as per content):
+    1. <FooterWidgetSearch />
+       - Heading: "SEARCH"
+       - <SearchField />
+
+    2. <FooterWidgetContact />
+       - Heading: "contact"
+       - Phone number: "+1123456789"
+       - Address link to Google Maps
+
+    3. <FooterWidgetLinks title="Help" />
+       - Links: FAQ’s, Pricing Plans, Track Your Order, Returns
+
+    4. <FooterWidgetLinks title="About Us" />
+       - Links: Our Story, Job Opportunities, Store Locator, Contact Us
+
+    5. <FooterWidgetLinks title="Customer Services" />
+       - Links: My Account, Terms of Use, Deliveries & Returns, Gift card
+
+<FooterBottom>
+  - <FooterCopyright>
+      text: "© 2024 QODE INTERACTIVE, ALL RIGHTS RESERVED"
+      link: qodeinteractive.com
+  - Optional: <BackToTopButton />
+
+
+Cross-cutting Components & Utilities
+------------------------------------
+- <Section>
+    props:
+      - id
+      - backgroundColor
+      - paddingY
+      - maxWidth
+      - align (left/center)
+      - hasContainer (true/false)
+
+- <Container>
+    - Handles max-width and horizontal padding
+
+- <Grid>
+    props:
+      - columnsDesktop
+      - columnsTablet
+      - columnsMobile
+      - gap
+
+- <Button variant="primary" | "ghost" | "link" />
+
+- <Typography>
+    - <Heading level={1|2|3|4|5|6} />
+    - <BodyText size="sm|md|lg" />
+
+- <Image>
+    props:
+      - src
+      - alt
+      - loading
+      - aspectRatio
+
+- <Overlay>
+    props:
+      - opacity
+      - backgroundColor
+      - visibleOnHover

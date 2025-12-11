@@ -1,0 +1,293 @@
+BRIDGE513 – GSAP ANIMATION & INTERACTION BREAKDOWN
+===================================================
+
+Goal:
+-----
+Provide a reusable GSAP animation plan for a modern rebuild of the Bridge home page.
+Framework assumption: React + GSAP (with ScrollTrigger).
+
+
+GLOBAL PRINCIPLES
+-----------------
+- Keep motion subtle and supportive, not distracting.
+- Use easing: "power2.out" for most transitions, "power4.out" for hero reveal.
+- Duration ranges: 0.5–1.2s for most elements.
+- Stagger child elements for a “designed” feel (0.05–0.15s between items).
+- Respect reduced-motion:
+  - Wrap all timelines in a check and skip/disable animations if prefers-reduced-motion is set.
+
+
+1) PAGE LOAD HERO ANIMATION
+---------------------------
+Targets:
+- Header: logo, nav items, search/cart icons.
+- Hero feature cards: three cards in hero strip.
+
+Implementation sketch:
+- On page load, fade + slide in header:
+  - from: { y: -40, opacity: 0 }
+  - to:   { y: 0, opacity: 1, duration: 0.8 }
+
+- Hero cards:
+  - Staggered entrance from below:
+    - from: { y: 40, opacity: 0 }
+    - to:   { y: 0, opacity: 1, duration: 0.9, ease: "power3.out" }
+    - stagger: 0.12
+
+Example (pseudo-code):
+
+  const heroTl = gsap.timeline();
+  heroTl
+    .from(".site-header", {
+      y: -40,
+      opacity: 0,
+      duration: 0.8,
+      ease: "power2.out"
+    })
+    .from(".feature-card", {
+      y: 40,
+      opacity: 0,
+      duration: 0.9,
+      ease: "power3.out",
+      stagger: 0.12
+    }, "-=0.3");
+
+
+2) HEADER BEHAVIOR ON SCROLL
+----------------------------
+Patterns:
+- Sticky header that shrinks slightly on scroll.
+- Background changes from transparent to solid after user scrolls 40–60px.
+
+GSAP ScrollTrigger idea:
+- On scroll > 60px
+  - Add “header--scrolled” modifier (or just animate properties).
+
+  gsap.to(".site-header", {
+    scrollTrigger: {
+      trigger: "body",
+      start: "top top",
+      end: "+=200",
+      scrub: true
+    },
+    backgroundColor: "rgba(255,255,255,0.96)",
+    boxShadow: "0 4px 16px rgba(0,0,0,0.06)",
+    paddingTop: "8px",
+    paddingBottom: "8px"
+  });
+
+
+3) PRODUCT GRID SCROLL REVEAL
+-----------------------------
+Targets:
+- .product-section
+- .product-card
+
+Interaction:
+- When the section enters the viewport:
+  - Fade & slide cards up with stagger.
+- Keep it simple, no parallax to avoid motion overload.
+
+Example:
+
+  gsap.from(".product-card", {
+    scrollTrigger: {
+      trigger: ".product-section",
+      start: "top 70%",
+      toggleActions: "play none none reverse"
+    },
+    y: 30,
+    opacity: 0,
+    duration: 0.7,
+    ease: "power2.out",
+    stagger: 0.1
+  });
+
+
+4) DESIGNERS HIGHLIGHT SPLIT-LAYOUT ANIMATIONS
+----------------------------------------------
+Targets:
+- .designers-text
+- .designers-media
+
+Animation concept:
+- On scroll, text slides in from left, image from right.
+- Applied once when section enters viewport; reversed if user scrolls back above.
+
+Example:
+
+  const designersTl = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".designers-section",
+      start: "top 70%",
+      toggleActions: "play none none reverse"
+    }
+  });
+
+  designersTl
+    .from(".designers-text", {
+      x: -40,
+      opacity: 0,
+      duration: 0.8,
+      ease: "power3.out"
+    })
+    .from(".designers-media", {
+      x: 40,
+      opacity: 0,
+      duration: 0.8,
+      ease: "power3.out"
+    }, "-=0.4");
+
+
+5) BLOG CARDS FLOAT-IN
+----------------------
+Targets:
+- .blog-card
+
+Concept:
+- Cards rise gently from below with a small scale bump.
+
+Example:
+
+  gsap.from(".blog-card", {
+    scrollTrigger: {
+      trigger: ".blog-preview",
+      start: "top 75%",
+      toggleActions: "play none none reverse"
+    },
+    y: 30,
+    opacity: 0,
+    scale: 0.98,
+    duration: 0.7,
+    ease: "power2.out",
+    stagger: 0.12
+  });
+
+
+6) WORKSHOP CTA: EMPHASIZED ENTRY
+---------------------------------
+Targets:
+- .workshop-text
+- .workshop-gallery img
+
+Concept:
+- This is a key engagement CTA; make it slightly more attention-grabbing:
+  - Fade in + gentle scale on text
+  - Sequential fade-in of gallery thumbnails
+
+Example:
+
+  const workshopTl = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".workshop-section",
+      start: "top 70%",
+      toggleActions: "play none none reverse"
+    }
+  });
+
+  workshopTl
+    .from(".workshop-text", {
+      y: 40,
+      opacity: 0,
+      duration: 0.8,
+      ease: "power3.out"
+    })
+    .from(".workshop-gallery .workshop-thumb", {
+      y: 20,
+      opacity: 0,
+      duration: 0.6,
+      ease: "power2.out",
+      stagger: 0.1
+    }, "-=0.3");
+
+
+7) GALLERY STRIP: HORIZONTAL DRIFT (OPTIONAL)
+--------------------------------------------
+Targets:
+- .gallery-strip
+- .gallery-item
+
+Concept (optional flair):
+- Subtle horizontal drift parallax effect tied to scroll.
+- Keep small (5–15px) to avoid motion sickness.
+
+Example:
+
+  gsap.to(".gallery-item", {
+    scrollTrigger: {
+      trigger: ".gallery-strip",
+      start: "top bottom",
+      end: "bottom top",
+      scrub: true
+    },
+    x: (i, target) => i % 2 === 0 ? 10 : -10,
+    ease: "none"
+  });
+
+
+8) HOVER INTERACTIONS (CSS-FIRST, GSAP-OPTIONAL)
+-----------------------------------------------
+Recommended primarily via CSS:
+- Product card hover:
+  - Slight scale and shadow
+  - Wishlist icon fades in
+
+Optional GSAP for hover (only if needed):
+- Use gsap.to inside mouseenter/mouseleave handlers for fine control.
+
+Example pattern:
+
+  productCard.addEventListener("mouseenter", () => {
+    gsap.to(productCard, { scale: 1.02, duration: 0.2, ease: "power2.out" });
+  });
+
+  productCard.addEventListener("mouseleave", () => {
+    gsap.to(productCard, { scale: 1.0, duration: 0.2, ease: "power2.out" });
+  });
+
+
+9) MOBILE-SPECIFIC BEHAVIOR
+---------------------------
+Points:
+- Avoid heavy scroll-linked animations on mobile; reduce to simple fades.
+- Ensure ScrollTrigger uses `invalidateOnRefresh` and correct `scroll` container if using custom containers.
+
+Example configuration:
+
+  ScrollTrigger.defaults({
+    toggleActions: "play none none reverse",
+    markers: false
+  });
+
+  // Consider using matchMedia:
+  ScrollTrigger.matchMedia({
+    "(min-width: 768px)": function() {
+      // desktop/tablet animations
+    },
+    "(max-width: 767px)": function() {
+      // simplified animations: maybe only fades, no large translations
+    }
+  });
+
+
+10) REDUCED-MOTION HANDLING
+---------------------------
+Pattern to respect OS preference:
+
+  const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+  if (!mediaQuery.matches) {
+    // init all GSAP timelines & ScrollTriggers here
+  }
+
+If reduced motion is requested:
+- Skip GSAP entirely or only keep essential visibility changes (no motion).
+
+
+SUMMARY
+-------
+- Hero & header: load-in animations to establish first impression.
+- Product grid: scroll-triggered reveals to showcase shop items.
+- Designers & blog: split entrance animations to support storytelling.
+- Workshop CTA: slightly more emphasized entrance to signal importance.
+- Gallery: optional subtle parallax for atmosphere.
+- All animations gated by reduced-motion preference & tuned per breakpoint.

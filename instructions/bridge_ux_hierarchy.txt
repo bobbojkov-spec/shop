@@ -1,0 +1,183 @@
+BRIDGE513 – UX HIERARCHY & SCROLL-DEPTH ANALYSIS
+=================================================
+
+GOAL ASSUMPTION
+---------------
+Primary:
+- Sell handmade ceramics (products) and get users into the Shop flow.
+
+Secondary:
+- Build brand story (designers, workshop, editorial content).
+- Provide trust signals and support paths (Help, Contact, About Us).
+
+
+GLOBAL PRIORITY (TOP TO BOTTOM)
+-------------------------------
+1. Navigation + Brand (HEADER)
+2. Product Discovery (Product Grid, Shop links)
+3. Brand Story (Designers highlight, blog posts)
+4. Engagement + Community (Workshop promo, gallery)
+5. Support + Info (Footer widgets)
+6. Legal & credits (Footer bottom)
+
+
+ABOVE-THE-FOLD (FIRST VIEWPORT)
+-------------------------------
+Elements likely visible without scrolling on desktop:
+- Sticky header with logo + navigation + search + cart
+- Hero feature strip with 3 key themed cards (“INSPIRED BY THE SEA”, etc.)
+
+UX implications:
+- Users immediately see the brand aesthetic and thematic concepts.
+- There is no classic single hero banner with one primary CTA; instead, the page offers three parallel entry points (three cards).
+
+Possible optimization:
+- Add a single dominant CTA (e.g., “Shop New Collection”) above or below the hero strip to consolidate intent.
+
+
+EARLY SCROLL (FIRST 1–2 SCREEN HEIGHTS)
+---------------------------------------
+Key sections:
+- ProductGridSection (featured products)
+- “VIEW ALL” shop CTA
+
+User behavior expectations:
+- Users scrolling a bit should quickly encounter concrete products and prices.
+- Product cards include wishlist and add-to-cart buttons, which is strong for conversion.
+
+UX priorities:
+- Primary conversion: clicking on a product or adding to cart.
+- Secondary: clicking “VIEW ALL” to explore the full catalog.
+
+Potential improvements:
+- Ensure price and CTA are visually prominent enough vs. surrounding whitespace.
+- Add labels like “Best Sellers” / “Featured Pieces” to guide users.
+
+
+MID SCROLL (STORY & CREDIBILITY)
+--------------------------------
+Sections:
+- DesignersHighlight (“MEET DESIGNERS EVA & NINA”)
+- BlogPreviewSection (3 blog cards)
+
+Intended UX role:
+- Humanize the brand (EVA & NINA as real designers).
+- Provide narrative and context (work, inspirations, events).
+- Improve SEO and perception of thought leadership via blog content.
+
+Visual priority:
+- Still medium-high; headings and imagery should retain attention.
+- Use strong typography and imagery so this section doesn’t feel like filler between product blocks.
+
+Behavior expectations:
+- Users inclined to storytelling and context (vs pure shopping) will read more.
+- Some users will click through to About / Blog and may convert later after exploring.
+
+
+MID-LATE SCROLL (ENGAGEMENT CTA)
+--------------------------------
+Section:
+- WorkshopPromoSection (“WORKSHOP IN OUR CERAMIC STUDIO”, “APPLY NOW”)
+
+Role:
+- Strong CTA for highly engaged users.
+- Offers an offline/experiential dimension to the brand.
+
+Priority:
+- For general e-commerce users: secondary.
+- For local or fans-of-brand users: primary/valuable.
+
+UX considerations:
+- Position near the middle to end of scroll so mainly committed users see it.
+- Ensure “APPLY NOW” stands out visually (color contrast, size, whitespace).
+
+
+LATE SCROLL (MOOD & LIFESTYLE)
+------------------------------
+Section:
+- GalleryStrip (multi-image strip, Instagram-like moodboard)
+
+Role:
+- Emotional reinforcement of brand vibe (handmade, artistic, coastal/natural themes).
+- Light secondary CTA if images are linked to Instagram or product pages.
+
+Priority:
+- Lower than product grid and workshop CTA, but still visually engaging.
+- Works as a visual “reward” near the bottom of the page.
+
+
+FOOTER (SUPPORT & SAFETY NET)
+-----------------------------
+Sections:
+- FooterWidgetArea (search, contact, Help, About Us, Customer Services)
+- FooterBottom (copyright)
+
+Role:
+- Navigation safety net for oriented users (“I want FAQ”, “I need contact details”, “Where are your stores?”).
+- Trust & legitimacy via address, phone, and links to policy pages.
+
+UX expectations:
+- Users in problem-solving or information-seeking mode will naturally scroll here if they cannot find answers above.
+- All key support paths present:
+  - “Track Your Order”
+  - “Returns”
+  - “My Account”
+  - “Terms of Use”, etc.
+
+
+SCROLL-DEPTH TIERING
+--------------------
+TIER 1 – MUST SEE (0–1 viewport)
+- Header (logo, nav, search, cart)
+- HeroFeatureStrip
+
+TIER 2 – HIGH VALUE (1–2.5 viewports)
+- ProductGridSection
+- “VIEW ALL” CTA to shop
+
+TIER 3 – SUPPORTING STORY (2.5–4 viewports)
+- DesignersHighlight
+- BlogPreviewSection
+
+TIER 4 – ENGAGEMENT & COMMUNITY (4–5 viewports)
+- WorkshopPromoSection
+- GalleryStrip
+
+TIER 5 – SAFETY & SUPPORT (5+ viewports)
+- Footer widgets (Help, About Us, Customer Services)
+- Footer legal
+
+
+UX RISKS & OPPORTUNITIES
+------------------------
+1) Hero with 3 equal cards
+   - Risk: No single dominant CTA; users may not know what to click first.
+   - Opportunity: Turn one card into a “featured collection” hero with stronger emphasis.
+
+2) Product grid position
+   - Positive: Appears early—good for commerce.
+   - Opportunity: Add labels like “New arrivals” / “Best sellers” and visible section heading.
+
+3) Designers & blog sections
+   - Benefit: Strong for brand-building and SEO.
+   - Risk: Can feel like content detour if not clearly linked back to products.
+
+4) Workshop CTA
+   - Good: High-commitment CTA for loyal/engaged users.
+   - Needs: Clear explanation of benefits, limited spots, schedule, or location for urgency/clarity.
+
+5) Footer density
+   - Positive: All needed support links are present.
+   - Risk: Dense blocks of text may be overwhelming; consider grouping and icon usage.
+
+
+RECOMMENDED UX ADJUSTMENTS (SUMMARY)
+------------------------------------
+- Clarify one “Primary Path”:
+  - E.g., “Shop the collection” button in or just below hero.
+- Highlight product section with a clear heading.
+- Add “View all products” CTA near top of page as well as within product section.
+- Ensure all CTAs (“learn more”, “READ MORE”, “APPLY NOW”) visually indicate their differences in priority:
+  - Primary = filled button
+  - Secondary = outlined
+  - Tertiary = text link

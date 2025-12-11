@@ -1,0 +1,2524 @@
+{
+  "version": "1.0.0",
+  "name": "Bridge513 Demo \u2013 Component Library + Pages Spec",
+  "meta": {
+    "source": "Reconstructed from demo site structure + local image filenames",
+    "author": "ChatGPT (GPT-5.1 Thinking)",
+    "notes": "Structure-focused JSON for agents; not a pixel-perfect export."
+  },
+  "tokens": {
+    "color": {
+      "background": {
+        "page": "#FFFFFF",
+        "sectionAlt": "#F5F5F4"
+      },
+      "text": {
+        "primary": "#111827",
+        "secondary": "#4B5563",
+        "muted": "#9CA3AF",
+        "inverse": "#FFFFFF"
+      },
+      "brand": {
+        "primary": "#D97757",
+        "primarySoft": "#FDECE5",
+        "accent": "#4C4C47"
+      },
+      "border": {
+        "subtle": "#E5E7EB"
+      }
+    },
+    "font": {
+      "family": {
+        "heading": "Playfair Display, 'Times New Roman', serif",
+        "body": "Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif"
+      },
+      "size": {
+        "xs": 12,
+        "sm": 14,
+        "md": 16,
+        "lg": 18,
+        "xl": 24,
+        "2xl": 32,
+        "3xl": 40,
+        "4xl": 56
+      },
+      "lineHeight": {
+        "tight": 1.1,
+        "normal": 1.4,
+        "relaxed": 1.6
+      }
+    },
+    "radius": {
+      "none": 0,
+      "sm": 4,
+      "md": 8,
+      "lg": 16,
+      "full": 999
+    },
+    "shadow": {
+      "none": "none",
+      "sm": "0 2px 4px rgba(15, 23, 42, 0.06)",
+      "md": "0 8px 20px rgba(15, 23, 42, 0.12)"
+    },
+    "space": {
+      "0": 0,
+      "1": 4,
+      "2": 8,
+      "3": 12,
+      "4": 16,
+      "5": 20,
+      "6": 24,
+      "8": 32,
+      "10": 40,
+      "12": 48,
+      "16": 64
+    },
+    "breakpoint": {
+      "mobile": 480,
+      "tablet": 768,
+      "desktop": 1024,
+      "wide": 1440
+    }
+  },
+  "assets": [
+    {
+      "id": "about-us-img-1-1",
+      "filename": "about-us-img-1-1.jpg",
+      "type": "image",
+      "category": "about",
+      "pathHint": "Downloads/extractedimages/about-us-img-1-1.jpg"
+    },
+    {
+      "id": "about-us-img-3",
+      "filename": "about-us-img-3.jpg",
+      "type": "image",
+      "category": "about",
+      "pathHint": "Downloads/extractedimages/about-us-img-3.jpg"
+    },
+    {
+      "id": "about-us-img-7",
+      "filename": "about-us-img-7.png",
+      "type": "image",
+      "category": "about",
+      "pathHint": "Downloads/extractedimages/about-us-img-7.png"
+    },
+    {
+      "id": "blog-1s-413x647",
+      "filename": "blog-1s-413x647.jpg",
+      "type": "image",
+      "category": "blog",
+      "pathHint": "Downloads/extractedimages/blog-1s-413x647.jpg"
+    },
+    {
+      "id": "blog-1s",
+      "filename": "blog-1s.jpg",
+      "type": "image",
+      "category": "blog",
+      "pathHint": "Downloads/extractedimages/blog-1s.jpg"
+    },
+    {
+      "id": "blog-2s-413x647",
+      "filename": "blog-2s-413x647.jpg",
+      "type": "image",
+      "category": "blog",
+      "pathHint": "Downloads/extractedimages/blog-2s-413x647.jpg"
+    },
+    {
+      "id": "blog-2s",
+      "filename": "blog-2s.jpg",
+      "type": "image",
+      "category": "blog",
+      "pathHint": "Downloads/extractedimages/blog-2s.jpg"
+    },
+    {
+      "id": "blog-3s-413x647",
+      "filename": "blog-3s-413x647.jpg",
+      "type": "image",
+      "category": "blog",
+      "pathHint": "Downloads/extractedimages/blog-3s-413x647.jpg"
+    },
+    {
+      "id": "blog-3s",
+      "filename": "blog-3s.jpg",
+      "type": "image",
+      "category": "blog",
+      "pathHint": "Downloads/extractedimages/blog-3s.jpg"
+    },
+    {
+      "id": "blog-img-4s-150x150",
+      "filename": "blog-img-4s-150x150.jpg",
+      "type": "image",
+      "category": "blog",
+      "pathHint": "Downloads/extractedimages/blog-img-4s-150x150.jpg"
+    },
+    {
+      "id": "blog-img-4s",
+      "filename": "blog-img-4s.jpg",
+      "type": "image",
+      "category": "blog",
+      "pathHint": "Downloads/extractedimages/blog-img-4s.jpg"
+    },
+    {
+      "id": "blog-img-5s-150x150",
+      "filename": "blog-img-5s-150x150.jpg",
+      "type": "image",
+      "category": "blog",
+      "pathHint": "Downloads/extractedimages/blog-img-5s-150x150.jpg"
+    },
+    {
+      "id": "blog-img-5s",
+      "filename": "blog-img-5s.jpg",
+      "type": "image",
+      "category": "blog",
+      "pathHint": "Downloads/extractedimages/blog-img-5s.jpg"
+    },
+    {
+      "id": "blog-img-6s-150x150",
+      "filename": "blog-img-6s-150x150.jpg",
+      "type": "image",
+      "category": "blog",
+      "pathHint": "Downloads/extractedimages/blog-img-6s-150x150.jpg"
+    },
+    {
+      "id": "blog-img-6s",
+      "filename": "blog-img-6s.jpg",
+      "type": "image",
+      "category": "blog",
+      "pathHint": "Downloads/extractedimages/blog-img-6s.jpg"
+    },
+    {
+      "id": "blog-post-13",
+      "filename": "blog-post-13.jpg",
+      "type": "image",
+      "category": "blog",
+      "pathHint": "Downloads/extractedimages/blog-post-13.jpg"
+    },
+    {
+      "id": "blog-post-14",
+      "filename": "blog-post-14.jpg",
+      "type": "image",
+      "category": "blog",
+      "pathHint": "Downloads/extractedimages/blog-post-14.jpg"
+    },
+    {
+      "id": "blog-post-15",
+      "filename": "blog-post-15.jpg",
+      "type": "image",
+      "category": "blog",
+      "pathHint": "Downloads/extractedimages/blog-post-15.jpg"
+    },
+    {
+      "id": "blog-post-18-150x150",
+      "filename": "blog-post-18-150x150.jpg",
+      "type": "image",
+      "category": "blog",
+      "pathHint": "Downloads/extractedimages/blog-post-18-150x150.jpg"
+    },
+    {
+      "id": "blog-post-18",
+      "filename": "blog-post-18.jpg",
+      "type": "image",
+      "category": "blog",
+      "pathHint": "Downloads/extractedimages/blog-post-18.jpg"
+    },
+    {
+      "id": "blog-post-19",
+      "filename": "blog-post-19.jpg",
+      "type": "image",
+      "category": "blog",
+      "pathHint": "Downloads/extractedimages/blog-post-19.jpg"
+    },
+    {
+      "id": "blog-post-22",
+      "filename": "blog-post-22.jpg",
+      "type": "image",
+      "category": "blog",
+      "pathHint": "Downloads/extractedimages/blog-post-22.jpg"
+    },
+    {
+      "id": "blog-post-25",
+      "filename": "blog-post-25.jpg",
+      "type": "image",
+      "category": "blog",
+      "pathHint": "Downloads/extractedimages/blog-post-25.jpg"
+    },
+    {
+      "id": "blog-post-img-1-gallery-img-1-150x150",
+      "filename": "blog-post-img-1-gallery-img-1-150x150.jpg",
+      "type": "image",
+      "category": "blog",
+      "pathHint": "Downloads/extractedimages/blog-post-img-1-gallery-img-1-150x150.jpg"
+    },
+    {
+      "id": "blog-post-img-1-gallery-img-1",
+      "filename": "blog-post-img-1-gallery-img-1.jpg",
+      "type": "image",
+      "category": "blog",
+      "pathHint": "Downloads/extractedimages/blog-post-img-1-gallery-img-1.jpg"
+    },
+    {
+      "id": "blog-signle-post-img-1",
+      "filename": "blog-signle-post-img-1.jpg",
+      "type": "image",
+      "category": "blog",
+      "pathHint": "Downloads/extractedimages/blog-signle-post-img-1.jpg"
+    },
+    {
+      "id": "blog-signle-post-img-3",
+      "filename": "blog-signle-post-img-3.jpg",
+      "type": "image",
+      "category": "blog",
+      "pathHint": "Downloads/extractedimages/blog-signle-post-img-3.jpg"
+    },
+    {
+      "id": "blog-single-img-2s",
+      "filename": "blog-single-img-2s.jpg",
+      "type": "image",
+      "category": "blog",
+      "pathHint": "Downloads/extractedimages/blog-single-img-2s.jpg"
+    },
+    {
+      "id": "client-img-1-h",
+      "filename": "client-img-1-h.png",
+      "type": "image",
+      "category": "client-logo",
+      "pathHint": "Downloads/extractedimages/client-img-1-h.png"
+    },
+    {
+      "id": "client-img-1",
+      "filename": "client-img-1.png",
+      "type": "image",
+      "category": "client-logo",
+      "pathHint": "Downloads/extractedimages/client-img-1.png"
+    },
+    {
+      "id": "client-img-2-h",
+      "filename": "client-img-2-h.png",
+      "type": "image",
+      "category": "client-logo",
+      "pathHint": "Downloads/extractedimages/client-img-2-h.png"
+    },
+    {
+      "id": "client-img-2",
+      "filename": "client-img-2.png",
+      "type": "image",
+      "category": "client-logo",
+      "pathHint": "Downloads/extractedimages/client-img-2.png"
+    },
+    {
+      "id": "client-img-3-1",
+      "filename": "client-img-3-1.png",
+      "type": "image",
+      "category": "client-logo",
+      "pathHint": "Downloads/extractedimages/client-img-3-1.png"
+    },
+    {
+      "id": "client-img-3-h-1",
+      "filename": "client-img-3-h-1.png",
+      "type": "image",
+      "category": "client-logo",
+      "pathHint": "Downloads/extractedimages/client-img-3-h-1.png"
+    },
+    {
+      "id": "client-img-4-1",
+      "filename": "client-img-4-1.png",
+      "type": "image",
+      "category": "client-logo",
+      "pathHint": "Downloads/extractedimages/client-img-4-1.png"
+    },
+    {
+      "id": "client-img-4-h-1",
+      "filename": "client-img-4-h-1.png",
+      "type": "image",
+      "category": "client-logo",
+      "pathHint": "Downloads/extractedimages/client-img-4-h-1.png"
+    },
+    {
+      "id": "client-img-5-1",
+      "filename": "client-img-5-1.png",
+      "type": "image",
+      "category": "client-logo",
+      "pathHint": "Downloads/extractedimages/client-img-5-1.png"
+    },
+    {
+      "id": "client-img-5-h",
+      "filename": "client-img-5-h.png",
+      "type": "image",
+      "category": "client-logo",
+      "pathHint": "Downloads/extractedimages/client-img-5-h.png"
+    },
+    {
+      "id": "client-img-6-h",
+      "filename": "client-img-6-h.png",
+      "type": "image",
+      "category": "client-logo",
+      "pathHint": "Downloads/extractedimages/client-img-6-h.png"
+    },
+    {
+      "id": "client-img-6",
+      "filename": "client-img-6.png",
+      "type": "image",
+      "category": "client-logo",
+      "pathHint": "Downloads/extractedimages/client-img-6.png"
+    },
+    {
+      "id": "contact-img-1",
+      "filename": "contact-img-1.jpg",
+      "type": "image",
+      "category": "contact",
+      "pathHint": "Downloads/extractedimages/contact-img-1.jpg"
+    },
+    {
+      "id": "contact-img-2",
+      "filename": "contact-img-2.jpg",
+      "type": "image",
+      "category": "contact",
+      "pathHint": "Downloads/extractedimages/contact-img-2.jpg"
+    },
+    {
+      "id": "contact-img-3",
+      "filename": "contact-img-3.jpg",
+      "type": "image",
+      "category": "contact",
+      "pathHint": "Downloads/extractedimages/contact-img-3.jpg"
+    },
+    {
+      "id": "contact-img-4",
+      "filename": "contact-img-4.jpg",
+      "type": "image",
+      "category": "contact",
+      "pathHint": "Downloads/extractedimages/contact-img-4.jpg"
+    },
+    {
+      "id": "dummy",
+      "filename": "dummy.png",
+      "type": "image",
+      "category": "generic",
+      "pathHint": "Downloads/extractedimages/dummy.png"
+    },
+    {
+      "id": "h3-img-11a",
+      "filename": "h3-img-11a.png",
+      "type": "image",
+      "category": "generic",
+      "pathHint": "Downloads/extractedimages/h3-img-11a.png"
+    },
+    {
+      "id": "h3-img-11b",
+      "filename": "h3-img-11b.png",
+      "type": "image",
+      "category": "generic",
+      "pathHint": "Downloads/extractedimages/h3-img-11b.png"
+    },
+    {
+      "id": "h3-img-11c",
+      "filename": "h3-img-11c.png",
+      "type": "image",
+      "category": "generic",
+      "pathHint": "Downloads/extractedimages/h3-img-11c.png"
+    },
+    {
+      "id": "home-img-1a",
+      "filename": "home-img-1a.png",
+      "type": "image",
+      "category": "generic",
+      "pathHint": "Downloads/extractedimages/home-img-1a.png"
+    },
+    {
+      "id": "home-img-2a",
+      "filename": "home-img-2a.png",
+      "type": "image",
+      "category": "generic",
+      "pathHint": "Downloads/extractedimages/home-img-2a.png"
+    },
+    {
+      "id": "home-img-3a",
+      "filename": "home-img-3a.png",
+      "type": "image",
+      "category": "generic",
+      "pathHint": "Downloads/extractedimages/home-img-3a.png"
+    },
+    {
+      "id": "insta-1",
+      "filename": "insta-1.jpg",
+      "type": "image",
+      "category": "social",
+      "pathHint": "Downloads/extractedimages/insta-1.jpg"
+    },
+    {
+      "id": "insta-2",
+      "filename": "insta-2.jpg",
+      "type": "image",
+      "category": "social",
+      "pathHint": "Downloads/extractedimages/insta-2.jpg"
+    },
+    {
+      "id": "insta-3",
+      "filename": "insta-3.jpg",
+      "type": "image",
+      "category": "social",
+      "pathHint": "Downloads/extractedimages/insta-3.jpg"
+    },
+    {
+      "id": "insta-4",
+      "filename": "insta-4.jpg",
+      "type": "image",
+      "category": "social",
+      "pathHint": "Downloads/extractedimages/insta-4.jpg"
+    },
+    {
+      "id": "product-3-300x300",
+      "filename": "product-3-300x300.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-3-300x300.jpg"
+    },
+    {
+      "id": "product-3-img-1-300x300",
+      "filename": "product-3-img-1-300x300.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-3-img-1-300x300.jpg"
+    },
+    {
+      "id": "product-3-img-1",
+      "filename": "product-3-img-1.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-3-img-1.jpg"
+    },
+    {
+      "id": "product-3-img-2-300x300",
+      "filename": "product-3-img-2-300x300.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-3-img-2-300x300.jpg"
+    },
+    {
+      "id": "product-3-img-2",
+      "filename": "product-3-img-2.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-3-img-2.jpg"
+    },
+    {
+      "id": "product-3-img-3-300x300",
+      "filename": "product-3-img-3-300x300.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-3-img-3-300x300.jpg"
+    },
+    {
+      "id": "product-3-img-3",
+      "filename": "product-3-img-3.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-3-img-3.jpg"
+    },
+    {
+      "id": "product-3-img-4-300x300",
+      "filename": "product-3-img-4-300x300.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-3-img-4-300x300.jpg"
+    },
+    {
+      "id": "product-3-img-4",
+      "filename": "product-3-img-4.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-3-img-4.jpg"
+    },
+    {
+      "id": "product-3",
+      "filename": "product-3.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-3.jpg"
+    },
+    {
+      "id": "product-4-img-3-300x300",
+      "filename": "product-4-img-3-300x300.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-4-img-3-300x300.jpg"
+    },
+    {
+      "id": "product-4-img-3",
+      "filename": "product-4-img-3.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-4-img-3.jpg"
+    },
+    {
+      "id": "product-4-img-4-300x300",
+      "filename": "product-4-img-4-300x300.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-4-img-4-300x300.jpg"
+    },
+    {
+      "id": "product-4-img-4",
+      "filename": "product-4-img-4.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-4-img-4.jpg"
+    },
+    {
+      "id": "product-5-300x300",
+      "filename": "product-5-300x300.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-5-300x300.jpg"
+    },
+    {
+      "id": "product-5-img-1-300x300",
+      "filename": "product-5-img-1-300x300.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-5-img-1-300x300.jpg"
+    },
+    {
+      "id": "product-5-img-1",
+      "filename": "product-5-img-1.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-5-img-1.jpg"
+    },
+    {
+      "id": "product-5-img-2-300x300",
+      "filename": "product-5-img-2-300x300.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-5-img-2-300x300.jpg"
+    },
+    {
+      "id": "product-5-img-2",
+      "filename": "product-5-img-2.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-5-img-2.jpg"
+    },
+    {
+      "id": "product-5-img-3-300x300",
+      "filename": "product-5-img-3-300x300.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-5-img-3-300x300.jpg"
+    },
+    {
+      "id": "product-5-img-3",
+      "filename": "product-5-img-3.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-5-img-3.jpg"
+    },
+    {
+      "id": "product-5-img-4-300x300",
+      "filename": "product-5-img-4-300x300.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-5-img-4-300x300.jpg"
+    },
+    {
+      "id": "product-5-img-4",
+      "filename": "product-5-img-4.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-5-img-4.jpg"
+    },
+    {
+      "id": "product-5",
+      "filename": "product-5.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-5.jpg"
+    },
+    {
+      "id": "product-6-300x300",
+      "filename": "product-6-300x300.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-6-300x300.jpg"
+    },
+    {
+      "id": "product-6-img-1-300x300",
+      "filename": "product-6-img-1-300x300.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-6-img-1-300x300.jpg"
+    },
+    {
+      "id": "product-6-img-1",
+      "filename": "product-6-img-1.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-6-img-1.jpg"
+    },
+    {
+      "id": "product-6-img-2-300x300",
+      "filename": "product-6-img-2-300x300.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-6-img-2-300x300.jpg"
+    },
+    {
+      "id": "product-6-img-2",
+      "filename": "product-6-img-2.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-6-img-2.jpg"
+    },
+    {
+      "id": "product-6-img-3-300x300",
+      "filename": "product-6-img-3-300x300.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-6-img-3-300x300.jpg"
+    },
+    {
+      "id": "product-6-img-3",
+      "filename": "product-6-img-3.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-6-img-3.jpg"
+    },
+    {
+      "id": "product-6-img-4-300x300",
+      "filename": "product-6-img-4-300x300.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-6-img-4-300x300.jpg"
+    },
+    {
+      "id": "product-6-img-4",
+      "filename": "product-6-img-4.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-6-img-4.jpg"
+    },
+    {
+      "id": "product-6",
+      "filename": "product-6.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-6.jpg"
+    },
+    {
+      "id": "product-7-300x300",
+      "filename": "product-7-300x300.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-7-300x300.jpg"
+    },
+    {
+      "id": "product-7-img-1-300x300",
+      "filename": "product-7-img-1-300x300.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-7-img-1-300x300.jpg"
+    },
+    {
+      "id": "product-7-img-1",
+      "filename": "product-7-img-1.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-7-img-1.jpg"
+    },
+    {
+      "id": "product-7-img-2-300x300",
+      "filename": "product-7-img-2-300x300.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-7-img-2-300x300.jpg"
+    },
+    {
+      "id": "product-7-img-2",
+      "filename": "product-7-img-2.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-7-img-2.jpg"
+    },
+    {
+      "id": "product-7-img-3-300x300",
+      "filename": "product-7-img-3-300x300.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-7-img-3-300x300.jpg"
+    },
+    {
+      "id": "product-7-img-3",
+      "filename": "product-7-img-3.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-7-img-3.jpg"
+    },
+    {
+      "id": "product-7-img-4-300x300",
+      "filename": "product-7-img-4-300x300.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-7-img-4-300x300.jpg"
+    },
+    {
+      "id": "product-7-img-4",
+      "filename": "product-7-img-4.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-7-img-4.jpg"
+    },
+    {
+      "id": "product-7",
+      "filename": "product-7.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-7.jpg"
+    },
+    {
+      "id": "product-8-300x300",
+      "filename": "product-8-300x300.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-8-300x300.jpg"
+    },
+    {
+      "id": "product-8-img-1-300x300",
+      "filename": "product-8-img-1-300x300.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-8-img-1-300x300.jpg"
+    },
+    {
+      "id": "product-8-img-1",
+      "filename": "product-8-img-1.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-8-img-1.jpg"
+    },
+    {
+      "id": "product-8-img-2-300x300",
+      "filename": "product-8-img-2-300x300.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-8-img-2-300x300.jpg"
+    },
+    {
+      "id": "product-8-img-2",
+      "filename": "product-8-img-2.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-8-img-2.jpg"
+    },
+    {
+      "id": "product-8-img-3-300x300",
+      "filename": "product-8-img-3-300x300.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-8-img-3-300x300.jpg"
+    },
+    {
+      "id": "product-8-img-3",
+      "filename": "product-8-img-3.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-8-img-3.jpg"
+    },
+    {
+      "id": "product-8-img-4-300x300",
+      "filename": "product-8-img-4-300x300.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-8-img-4-300x300.jpg"
+    },
+    {
+      "id": "product-8-img-4",
+      "filename": "product-8-img-4.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-8-img-4.jpg"
+    },
+    {
+      "id": "product-8",
+      "filename": "product-8.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-8.jpg"
+    },
+    {
+      "id": "product-9-300x300",
+      "filename": "product-9-300x300.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-9-300x300.jpg"
+    },
+    {
+      "id": "product-9-img-1-300x300",
+      "filename": "product-9-img-1-300x300.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-9-img-1-300x300.jpg"
+    },
+    {
+      "id": "product-9-img-1",
+      "filename": "product-9-img-1.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-9-img-1.jpg"
+    },
+    {
+      "id": "product-9-img-2-300x300",
+      "filename": "product-9-img-2-300x300.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-9-img-2-300x300.jpg"
+    },
+    {
+      "id": "product-9-img-2",
+      "filename": "product-9-img-2.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-9-img-2.jpg"
+    },
+    {
+      "id": "product-9-img-3-300x300",
+      "filename": "product-9-img-3-300x300.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-9-img-3-300x300.jpg"
+    },
+    {
+      "id": "product-9-img-3",
+      "filename": "product-9-img-3.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-9-img-3.jpg"
+    },
+    {
+      "id": "product-9-img-4-300x300",
+      "filename": "product-9-img-4-300x300.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-9-img-4-300x300.jpg"
+    },
+    {
+      "id": "product-9-img-4",
+      "filename": "product-9-img-4.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-9-img-4.jpg"
+    },
+    {
+      "id": "product-9",
+      "filename": "product-9.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-9.jpg"
+    },
+    {
+      "id": "product-10-300x300",
+      "filename": "product-10-300x300.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-10-300x300.jpg"
+    },
+    {
+      "id": "product-10-img-1-300x300",
+      "filename": "product-10-img-1-300x300.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-10-img-1-300x300.jpg"
+    },
+    {
+      "id": "product-10-img-1",
+      "filename": "product-10-img-1.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-10-img-1.jpg"
+    },
+    {
+      "id": "product-10-img-2-300x300",
+      "filename": "product-10-img-2-300x300.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-10-img-2-300x300.jpg"
+    },
+    {
+      "id": "product-10-img-2",
+      "filename": "product-10-img-2.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-10-img-2.jpg"
+    },
+    {
+      "id": "product-10-img-3-300x300",
+      "filename": "product-10-img-3-300x300.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-10-img-3-300x300.jpg"
+    },
+    {
+      "id": "product-10-img-3",
+      "filename": "product-10-img-3.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-10-img-3.jpg"
+    },
+    {
+      "id": "product-10-img-4-300x300",
+      "filename": "product-10-img-4-300x300.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-10-img-4-300x300.jpg"
+    },
+    {
+      "id": "product-10-img-4",
+      "filename": "product-10-img-4.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-10-img-4.jpg"
+    },
+    {
+      "id": "product-10",
+      "filename": "product-10.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-10.jpg"
+    },
+    {
+      "id": "product-12-img-1-300x300",
+      "filename": "product-12-img-1-300x300.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-12-img-1-300x300.jpg"
+    },
+    {
+      "id": "product-12-img-1",
+      "filename": "product-12-img-1.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-12-img-1.jpg"
+    },
+    {
+      "id": "product-12-img-2-300x300",
+      "filename": "PRODUCT-12-IMG-2-300x300.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/PRODUCT-12-IMG-2-300x300.jpg"
+    },
+    {
+      "id": "product-12-img-2",
+      "filename": "PRODUCT-12-IMG-2.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/PRODUCT-12-IMG-2.jpg"
+    },
+    {
+      "id": "product-12-img-3-300x300",
+      "filename": "product-12-img-3-300x300.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-12-img-3-300x300.jpg"
+    },
+    {
+      "id": "product-12-img-3",
+      "filename": "product-12-img-3.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-12-img-3.jpg"
+    },
+    {
+      "id": "product-12-img-4-300x300",
+      "filename": "product-12-img-4-300x300.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-12-img-4-300x300.jpg"
+    },
+    {
+      "id": "product-12-img-4",
+      "filename": "product-12-img-4.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-12-img-4.jpg"
+    },
+    {
+      "id": "product-14-1-300x300",
+      "filename": "product-14-1-300x300.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-14-1-300x300.jpg"
+    },
+    {
+      "id": "product-14-1",
+      "filename": "product-14-1.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-14-1.jpg"
+    },
+    {
+      "id": "product-14-img-1-300x300",
+      "filename": "product-14-img-1-300x300.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-14-img-1-300x300.jpg"
+    },
+    {
+      "id": "product-14-img-1",
+      "filename": "product-14-img-1.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-14-img-1.jpg"
+    },
+    {
+      "id": "product-14-img-3-300x300",
+      "filename": "product-14-img-3-300x300.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-14-img-3-300x300.jpg"
+    },
+    {
+      "id": "product-14-img-3",
+      "filename": "product-14-img-3.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-14-img-3.jpg"
+    },
+    {
+      "id": "product-14-img-4-300x300",
+      "filename": "product-14-img-4-300x300.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-14-img-4-300x300.jpg"
+    },
+    {
+      "id": "product-14-img-4",
+      "filename": "product-14-img-4.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-14-img-4.jpg"
+    },
+    {
+      "id": "product-16-300x300",
+      "filename": "product-16-300x300.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-16-300x300.jpg"
+    },
+    {
+      "id": "product-16-img-1-300x300",
+      "filename": "product-16-img-1-300x300.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-16-img-1-300x300.jpg"
+    },
+    {
+      "id": "product-16-img-1",
+      "filename": "product-16-img-1.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-16-img-1.jpg"
+    },
+    {
+      "id": "product-16-img-2-300x300",
+      "filename": "product-16-img-2-300x300.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-16-img-2-300x300.jpg"
+    },
+    {
+      "id": "product-16-img-2",
+      "filename": "product-16-img-2.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-16-img-2.jpg"
+    },
+    {
+      "id": "product-16-img-3-300x300",
+      "filename": "product-16-img-3-300x300.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-16-img-3-300x300.jpg"
+    },
+    {
+      "id": "product-16-img-3",
+      "filename": "product-16-img-3.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-16-img-3.jpg"
+    },
+    {
+      "id": "product-16-img-4-300x300",
+      "filename": "product-16-img-4-300x300.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-16-img-4-300x300.jpg"
+    },
+    {
+      "id": "product-16-img-4",
+      "filename": "product-16-img-4.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-16-img-4.jpg"
+    },
+    {
+      "id": "product-16",
+      "filename": "product-16.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-16.jpg"
+    },
+    {
+      "id": "product-18-300x300",
+      "filename": "product-18-300x300.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-18-300x300.jpg"
+    },
+    {
+      "id": "product-18-img-1-300x300",
+      "filename": "product-18-img-1-300x300.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-18-img-1-300x300.jpg"
+    },
+    {
+      "id": "product-18-img-1",
+      "filename": "product-18-img-1.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-18-img-1.jpg"
+    },
+    {
+      "id": "product-18-img-2-300x300",
+      "filename": "product-18-img-2-300x300.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-18-img-2-300x300.jpg"
+    },
+    {
+      "id": "product-18-img-2",
+      "filename": "product-18-img-2.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-18-img-2.jpg"
+    },
+    {
+      "id": "product-18-img-3-300x300",
+      "filename": "product-18-img-3-300x300.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-18-img-3-300x300.jpg"
+    },
+    {
+      "id": "product-18-img-3",
+      "filename": "product-18-img-3.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-18-img-3.jpg"
+    },
+    {
+      "id": "product-18-img-4-300x300",
+      "filename": "product-18-img-4-300x300.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-18-img-4-300x300.jpg"
+    },
+    {
+      "id": "product-18-img-4",
+      "filename": "product-18-img-4.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-18-img-4.jpg"
+    },
+    {
+      "id": "product-18",
+      "filename": "product-18.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-18.jpg"
+    },
+    {
+      "id": "product-23-img-1-300x300",
+      "filename": "product-23-img-1-300x300.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-23-img-1-300x300.jpg"
+    },
+    {
+      "id": "product-23-img-1",
+      "filename": "product-23-img-1.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-23-img-1.jpg"
+    },
+    {
+      "id": "product-23-img-2-300x300",
+      "filename": "product-23-img-2-300x300.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-23-img-2-300x300.jpg"
+    },
+    {
+      "id": "product-23-img-2",
+      "filename": "product-23-img-2.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-23-img-2.jpg"
+    },
+    {
+      "id": "product-23-img-3-300x300",
+      "filename": "product-23-img-3-300x300.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-23-img-3-300x300.jpg"
+    },
+    {
+      "id": "product-23-img-3",
+      "filename": "product-23-img-3.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-23-img-3.jpg"
+    },
+    {
+      "id": "product-23-img-4-300x300",
+      "filename": "product-23-img-4-300x300.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-23-img-4-300x300.jpg"
+    },
+    {
+      "id": "product-23-img-4",
+      "filename": "product-23-img-4.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-23-img-4.jpg"
+    },
+    {
+      "id": "product-24-300x300",
+      "filename": "product-24-300x300.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-24-300x300.jpg"
+    },
+    {
+      "id": "product-25-img-1-1-300x300",
+      "filename": "product-25-img-1-1-300x300.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-25-img-1-1-300x300.jpg"
+    },
+    {
+      "id": "product-25-img-1-1",
+      "filename": "product-25-img-1-1.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-25-img-1-1.jpg"
+    },
+    {
+      "id": "product-25-img-2-1-300x300",
+      "filename": "product-25-img-2-1-300x300.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-25-img-2-1-300x300.jpg"
+    },
+    {
+      "id": "product-25-img-2-1",
+      "filename": "product-25-img-2-1.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-25-img-2-1.jpg"
+    },
+    {
+      "id": "product-25-img-3-1-300x300",
+      "filename": "product-25-img-3-1-300x300.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-25-img-3-1-300x300.jpg"
+    },
+    {
+      "id": "product-25-img-3-1",
+      "filename": "product-25-img-3-1.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-25-img-3-1.jpg"
+    },
+    {
+      "id": "product-25-img-4-1-300x300",
+      "filename": "product-25-img-4-1-300x300.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-25-img-4-1-300x300.jpg"
+    },
+    {
+      "id": "product-25-img-4-1",
+      "filename": "product-25-img-4-1.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-25-img-4-1.jpg"
+    },
+    {
+      "id": "product-25-new-300x300",
+      "filename": "product-25-new-300x300.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-25-new-300x300.jpg"
+    },
+    {
+      "id": "product-25-new",
+      "filename": "product-25-new.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-25-new.jpg"
+    },
+    {
+      "id": "product-37-img-1-300x300",
+      "filename": "product-37-img-1-300x300.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-37-img-1-300x300.jpg"
+    },
+    {
+      "id": "product-37-img-1",
+      "filename": "product-37-img-1.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-37-img-1.jpg"
+    },
+    {
+      "id": "product-37-img-2-300x300",
+      "filename": "product-37-img-2-300x300.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-37-img-2-300x300.jpg"
+    },
+    {
+      "id": "product-37-img-2",
+      "filename": "product-37-img-2.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-37-img-2.jpg"
+    },
+    {
+      "id": "product-37-img-3-300x300",
+      "filename": "product-37-img-3-300x300.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-37-img-3-300x300.jpg"
+    },
+    {
+      "id": "product-37-img-3",
+      "filename": "product-37-img-3.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-37-img-3.jpg"
+    },
+    {
+      "id": "product-37-img-4-300x300",
+      "filename": "product-37-img-4-300x300.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-37-img-4-300x300.jpg"
+    },
+    {
+      "id": "product-37-img-4",
+      "filename": "product-37-img-4.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-37-img-4.jpg"
+    },
+    {
+      "id": "product-43-300x300",
+      "filename": "product-43-300x300.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-43-300x300.jpg"
+    },
+    {
+      "id": "product-43-img-1-1-300x300",
+      "filename": "product-43-img-1-1-300x300.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-43-img-1-1-300x300.jpg"
+    },
+    {
+      "id": "product-43-img-1-1",
+      "filename": "product-43-img-1-1.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-43-img-1-1.jpg"
+    },
+    {
+      "id": "product-43-img-2-1-300x300",
+      "filename": "product-43-img-2-1-300x300.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-43-img-2-1-300x300.jpg"
+    },
+    {
+      "id": "product-43-img-2-1",
+      "filename": "product-43-img-2-1.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-43-img-2-1.jpg"
+    },
+    {
+      "id": "product-43-img-3-300x300",
+      "filename": "product-43-img-3-300x300.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-43-img-3-300x300.jpg"
+    },
+    {
+      "id": "product-43-img-3",
+      "filename": "product-43-img-3.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-43-img-3.jpg"
+    },
+    {
+      "id": "product-43-img-4-300x300",
+      "filename": "product-43-img-4-300x300.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-43-img-4-300x300.jpg"
+    },
+    {
+      "id": "product-43-img-4",
+      "filename": "product-43-img-4.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-43-img-4.jpg"
+    },
+    {
+      "id": "product-43",
+      "filename": "product-43.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-43.jpg"
+    },
+    {
+      "id": "product-45-300x300",
+      "filename": "product-45-300x300.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-45-300x300.jpg"
+    },
+    {
+      "id": "product-51-1-300x300",
+      "filename": "product-51-1-300x300.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-51-1-300x300.jpg"
+    },
+    {
+      "id": "product-51-1",
+      "filename": "product-51-1.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-51-1.jpg"
+    },
+    {
+      "id": "product-52-1-300x300",
+      "filename": "product-52-1-300x300.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-52-1-300x300.jpg"
+    },
+    {
+      "id": "product-52-1",
+      "filename": "product-52-1.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-52-1.jpg"
+    },
+    {
+      "id": "product-52-img-1-300x300",
+      "filename": "product-52-img-1-300x300.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-52-img-1-300x300.jpg"
+    },
+    {
+      "id": "product-52-img-1",
+      "filename": "product-52-img-1.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-52-img-1.jpg"
+    },
+    {
+      "id": "product-52-img-2-300x300",
+      "filename": "product-52-img-2-300x300.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-52-img-2-300x300.jpg"
+    },
+    {
+      "id": "product-52-img-2",
+      "filename": "product-52-img-2.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-52-img-2.jpg"
+    },
+    {
+      "id": "product-54-1-300x300",
+      "filename": "product-54-1-300x300.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-54-1-300x300.jpg"
+    },
+    {
+      "id": "product-54-1",
+      "filename": "product-54-1.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-54-1.jpg"
+    },
+    {
+      "id": "product-57-300x300",
+      "filename": "product-57-300x300.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-57-300x300.jpg"
+    },
+    {
+      "id": "product-57",
+      "filename": "product-57.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-57.jpg"
+    },
+    {
+      "id": "product-58-300x300",
+      "filename": "product-58-300x300.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-58-300x300.jpg"
+    },
+    {
+      "id": "product-58",
+      "filename": "product-58.jpg",
+      "type": "image",
+      "category": "product",
+      "pathHint": "Downloads/extractedimages/product-58.jpg"
+    },
+    {
+      "id": "testimonials-img-1",
+      "filename": "testimonials-img-1.png",
+      "type": "image",
+      "category": "testimonials",
+      "pathHint": "Downloads/extractedimages/testimonials-img-1.png"
+    },
+    {
+      "id": "testimonials-img-2",
+      "filename": "testimonials-img-2.png",
+      "type": "image",
+      "category": "testimonials",
+      "pathHint": "Downloads/extractedimages/testimonials-img-2.png"
+    },
+    {
+      "id": "title-img-3",
+      "filename": "title-img-3.jpg",
+      "type": "image",
+      "category": "title-image",
+      "pathHint": "Downloads/extractedimages/title-img-3.jpg"
+    },
+    {
+      "id": "tonda-logo-heder",
+      "filename": "Tonda-logo-heder.png",
+      "type": "image",
+      "category": "generic",
+      "pathHint": "Downloads/extractedimages/Tonda-logo-heder.png"
+    },
+    {
+      "id": "user-1-1-100x100",
+      "filename": "user-1-1-100x100.jpg",
+      "type": "image",
+      "category": "avatar",
+      "pathHint": "Downloads/extractedimages/user-1-1-100x100.jpg"
+    },
+    {
+      "id": "user-1-100x100",
+      "filename": "User-1-100x100.jpg",
+      "type": "image",
+      "category": "avatar",
+      "pathHint": "Downloads/extractedimages/User-1-100x100.jpg"
+    },
+    {
+      "id": "user-1",
+      "filename": "User-1.jpg",
+      "type": "image",
+      "category": "avatar",
+      "pathHint": "Downloads/extractedimages/User-1.jpg"
+    },
+    {
+      "id": "user-2-100x100",
+      "filename": "user-2-100x100.jpg",
+      "type": "image",
+      "category": "avatar",
+      "pathHint": "Downloads/extractedimages/user-2-100x100.jpg"
+    },
+    {
+      "id": "video-button-img1",
+      "filename": "video-button-img1.jpg",
+      "type": "image",
+      "category": "generic",
+      "pathHint": "Downloads/extractedimages/video-button-img1.jpg"
+    }
+  ],
+  "components": {
+    "Page": {
+      "type": "layout",
+      "description": "Top-level container for a page. Provides background, max-width and vertical rhythm.",
+      "props": {
+        "backgroundColorToken": "color.background.page",
+        "maxWidth": 1440,
+        "paddingXToken": "space.4",
+        "paddingYToken": "space.8"
+      },
+      "slots": [
+        "header",
+        "main",
+        "footer"
+      ]
+    },
+    "Header": {
+      "type": "layout",
+      "description": "Sticky top navigation bar with logo, main nav, and actions.",
+      "props": {
+        "isSticky": true,
+        "elevationToken": "shadow.sm",
+        "backgroundColorToken": "color.background.page"
+      },
+      "slots": [
+        "logo",
+        "primaryNav",
+        "actions"
+      ]
+    },
+    "Logo": {
+      "type": "atom",
+      "props": {
+        "text": "Bridge",
+        "href": "/"
+      }
+    },
+    "NavBar": {
+      "type": "molecule",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "slots": [
+        "items"
+      ]
+    },
+    "NavItem": {
+      "type": "atom",
+      "props": {
+        "label": "Nav label",
+        "href": "/",
+        "isActive": false
+      }
+    },
+    "HeaderActions": {
+      "type": "molecule",
+      "slots": [
+        "search",
+        "cart",
+        "mobileToggle"
+      ]
+    },
+    "IconButton": {
+      "type": "atom",
+      "props": {
+        "icon": "search",
+        "ariaLabel": "Open search",
+        "variant": "ghost"
+      }
+    },
+    "HeroFeatureStrip": {
+      "type": "organism",
+      "description": "Row of 3 feature cards introducing main story pillars.",
+      "props": {
+        "layout": "3-up",
+        "backgroundColorToken": "color.background.page"
+      },
+      "slots": [
+        "cards"
+      ]
+    },
+    "HeroFeatureCard": {
+      "type": "molecule",
+      "props": {
+        "title": "INSPIRED BY THE SEA",
+        "body": "Short descriptive blurb about this theme.",
+        "ctaLabel": "learn more",
+        "ctaHref": "/shop",
+        "imageAssetId": "home-img-1a"
+      }
+    },
+    "Section": {
+      "type": "layout",
+      "description": "Generic content section wrapper.",
+      "props": {
+        "backgroundColorToken": "color.background.page",
+        "paddingYToken": "space.12",
+        "maxWidth": 1120,
+        "align": "center"
+      },
+      "slots": [
+        "header",
+        "body",
+        "footer"
+      ]
+    },
+    "SectionHeader": {
+      "type": "molecule",
+      "props": {
+        "kicker": "",
+        "title": "",
+        "subtitle": ""
+      }
+    },
+    "ProductCard": {
+      "type": "molecule",
+      "props": {
+        "title": "Product name",
+        "price": "$0.00",
+        "href": "/product/sample",
+        "imageAssetId": "product-3",
+        "hasWishlist": true,
+        "hasAddToCart": true
+      }
+    },
+    "ProductGrid": {
+      "type": "organism",
+      "props": {
+        "columnsDesktop": 4,
+        "columnsTablet": 2,
+        "columnsMobile": 1,
+        "gapToken": "space.6"
+      },
+      "slots": [
+        "items"
+      ]
+    },
+    "DesignersHighlight": {
+      "type": "organism",
+      "props": {
+        "kicker": "Behind the craft",
+        "title": "MEET DESIGNERS EVA & NINA",
+        "body": "Longer paragraph about designers and their story.",
+        "imageAssetId": "about-us-img-1-1"
+      }
+    },
+    "BlogCard": {
+      "type": "molecule",
+      "props": {
+        "title": "Blog post title",
+        "href": "/blog/sample-post",
+        "author": "Author Name",
+        "date": "2023-12-14",
+        "imageAssetId": "blog-1s"
+      }
+    },
+    "BlogGrid": {
+      "type": "organism",
+      "props": {
+        "columnsDesktop": 3,
+        "columnsTablet": 2,
+        "columnsMobile": 1
+      },
+      "slots": [
+        "items"
+      ]
+    },
+    "WorkshopPromo": {
+      "type": "organism",
+      "props": {
+        "title": "WORKSHOP IN OUR CERAMIC STUDIO",
+        "body": "Short blurb inviting users to join a workshop.",
+        "ctaLabel": "APPLY NOW",
+        "ctaHref": "/contact"
+      },
+      "slots": [
+        "gallery"
+      ]
+    },
+    "GalleryStrip": {
+      "type": "organism",
+      "props": {
+        "layout": "horizontal",
+        "maxItems": 6
+      },
+      "slots": [
+        "items"
+      ]
+    },
+    "Footer": {
+      "type": "layout",
+      "props": {
+        "backgroundColorToken": "color.brand.accent",
+        "textColorToken": "color.text.inverse",
+        "paddingYToken": "space.10"
+      },
+      "slots": [
+        "columns",
+        "bottomBar"
+      ]
+    },
+    "FooterColumn": {
+      "type": "molecule",
+      "props": {
+        "title": "Column title"
+      },
+      "slots": [
+        "items"
+      ]
+    },
+    "FooterLink": {
+      "type": "atom",
+      "props": {
+        "label": "Link label",
+        "href": "/"
+      }
+    }
+  },
+  "pages": {
+    "home": {
+      "id": "home",
+      "title": "Home",
+      "url": "/",
+      "uses": [
+        "Header",
+        "HeroFeatureStrip",
+        "ProductGrid",
+        "DesignersHighlight",
+        "BlogGrid",
+        "WorkshopPromo",
+        "GalleryStrip",
+        "Footer"
+      ],
+      "layout": {
+        "component": "Page"
+      },
+      "sections": [
+        {
+          "id": "header",
+          "component": "Header",
+          "slots": {
+            "logo": {
+              "component": "Logo"
+            },
+            "primaryNav": {
+              "component": "NavBar",
+              "slots": {
+                "items": [
+                  {
+                    "component": "NavItem",
+                    "props": {
+                      "label": "Home",
+                      "href": "/",
+                      "isActive": true
+                    }
+                  },
+                  {
+                    "component": "NavItem",
+                    "props": {
+                      "label": "About Us",
+                      "href": "/about-us"
+                    }
+                  },
+                  {
+                    "component": "NavItem",
+                    "props": {
+                      "label": "Our Stores",
+                      "href": "/our-stores"
+                    }
+                  },
+                  {
+                    "component": "NavItem",
+                    "props": {
+                      "label": "Shop",
+                      "href": "/shop"
+                    }
+                  },
+                  {
+                    "component": "NavItem",
+                    "props": {
+                      "label": "Blog",
+                      "href": "/blog"
+                    }
+                  }
+                ]
+              }
+            },
+            "actions": {
+              "component": "HeaderActions",
+              "slots": {
+                "search": {
+                  "component": "IconButton",
+                  "props": {
+                    "icon": "search",
+                    "ariaLabel": "Open search"
+                  }
+                },
+                "cart": {
+                  "component": "IconButton",
+                  "props": {
+                    "icon": "cart",
+                    "ariaLabel": "View cart"
+                  }
+                },
+                "mobileToggle": {
+                  "component": "IconButton",
+                  "props": {
+                    "icon": "menu",
+                    "ariaLabel": "Toggle navigation"
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "id": "hero-feature-strip",
+          "component": "HeroFeatureStrip",
+          "slots": {
+            "cards": [
+              {
+                "component": "HeroFeatureCard",
+                "props": {
+                  "title": "INSPIRED BY THE SEA",
+                  "imageAssetId": "home-img-1a"
+                }
+              },
+              {
+                "component": "HeroFeatureCard",
+                "props": {
+                  "title": "CREATED WITH LOVE",
+                  "imageAssetId": "home-img-2a"
+                }
+              },
+              {
+                "component": "HeroFeatureCard",
+                "props": {
+                  "title": "TOUCHED BY THE NATURE",
+                  "imageAssetId": "home-img-3a"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "featured-products",
+          "component": "Section",
+          "props": {
+            "backgroundColorToken": "color.background.page"
+          },
+          "slots": {
+            "header": {
+              "component": "SectionHeader",
+              "props": {
+                "kicker": "Featured pieces",
+                "title": "Handmade ceramic favorites",
+                "subtitle": "Curated selection of the most loved items."
+              }
+            },
+            "body": {
+              "component": "ProductGrid",
+              "slots": {
+                "items": [
+                  {
+                    "component": "ProductCard",
+                    "props": {
+                      "title": "Rose Oval Plate",
+                      "price": "$300.00",
+                      "imageAssetId": "product-3"
+                    }
+                  },
+                  {
+                    "component": "ProductCard",
+                    "props": {
+                      "title": "Golden Decor Pot",
+                      "price": "$280.00",
+                      "imageAssetId": "product-5"
+                    }
+                  },
+                  {
+                    "component": "ProductCard",
+                    "props": {
+                      "title": "Ocean Dinner Plate",
+                      "price": "$190.00",
+                      "imageAssetId": "product-6"
+                    }
+                  },
+                  {
+                    "component": "ProductCard",
+                    "props": {
+                      "title": "Sculpted Flower Vase",
+                      "price": "$220.00",
+                      "imageAssetId": "product-7"
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "id": "designers",
+          "component": "DesignersHighlight"
+        },
+        {
+          "id": "blog-preview",
+          "component": "Section",
+          "slots": {
+            "header": {
+              "component": "SectionHeader",
+              "props": {
+                "kicker": "From our journal",
+                "title": "Stories from the studio",
+                "subtitle": "Thoughts, notes, and events from our ceramic world."
+              }
+            },
+            "body": {
+              "component": "BlogGrid",
+              "slots": {
+                "items": [
+                  {
+                    "component": "BlogCard",
+                    "props": {
+                      "title": "Japan Design 2023: Handmade Ceramic Ideas",
+                      "imageAssetId": "blog-1s"
+                    }
+                  },
+                  {
+                    "component": "BlogCard",
+                    "props": {
+                      "title": "London Design 2023: Make Unique Handmade Mugs",
+                      "imageAssetId": "blog-2s"
+                    }
+                  },
+                  {
+                    "component": "BlogCard",
+                    "props": {
+                      "title": "Japan Design 2023: Color Inspo For All Visual Arts",
+                      "imageAssetId": "blog-3s"
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "id": "workshop-promo",
+          "component": "WorkshopPromo",
+          "slots": {
+            "gallery": {
+              "component": "GalleryStrip",
+              "slots": {
+                "items": [
+                  {
+                    "component": "Image",
+                    "props": {
+                      "assetId": "about-us-img-3"
+                    }
+                  },
+                  {
+                    "component": "Image",
+                    "props": {
+                      "assetId": "about-us-img-7"
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "id": "gallery-strip",
+          "component": "GalleryStrip",
+          "slots": {
+            "items": [
+              {
+                "component": "Image",
+                "props": {
+                  "assetId": "insta-1"
+                }
+              },
+              {
+                "component": "Image",
+                "props": {
+                  "assetId": "insta-2"
+                }
+              },
+              {
+                "component": "Image",
+                "props": {
+                  "assetId": "insta-3"
+                }
+              },
+              {
+                "component": "Image",
+                "props": {
+                  "assetId": "insta-4"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "footer",
+          "component": "Footer",
+          "slots": {
+            "columns": [
+              {
+                "component": "FooterColumn",
+                "props": {
+                  "title": "SEARCH"
+                },
+                "slots": {
+                  "items": [
+                    {
+                      "component": "FooterLink",
+                      "props": {
+                        "label": "Search field",
+                        "href": "/search"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "component": "FooterColumn",
+                "props": {
+                  "title": "contact"
+                },
+                "slots": {
+                  "items": [
+                    {
+                      "component": "FooterLink",
+                      "props": {
+                        "label": "+1123456789",
+                        "href": "tel:+1123456789"
+                      }
+                    },
+                    {
+                      "component": "FooterLink",
+                      "props": {
+                        "label": "1316 Abbot Kinney Blvd. Copenhagen CA 90291",
+                        "href": "https://www.google.com/maps"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "component": "FooterColumn",
+                "props": {
+                  "title": "Help"
+                },
+                "slots": {
+                  "items": [
+                    {
+                      "component": "FooterLink",
+                      "props": {
+                        "label": "FAQ\u2019s",
+                        "href": "/faqs"
+                      }
+                    },
+                    {
+                      "component": "FooterLink",
+                      "props": {
+                        "label": "Pricing Plans",
+                        "href": "/pricing-plans"
+                      }
+                    },
+                    {
+                      "component": "FooterLink",
+                      "props": {
+                        "label": "Track Your Order",
+                        "href": "/track-order"
+                      }
+                    },
+                    {
+                      "component": "FooterLink",
+                      "props": {
+                        "label": "Returns",
+                        "href": "/returns"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "component": "FooterColumn",
+                "props": {
+                  "title": "About Us"
+                },
+                "slots": {
+                  "items": [
+                    {
+                      "component": "FooterLink",
+                      "props": {
+                        "label": "Our Story",
+                        "href": "/our-story"
+                      }
+                    },
+                    {
+                      "component": "FooterLink",
+                      "props": {
+                        "label": "Job Opportunities",
+                        "href": "/jobs"
+                      }
+                    },
+                    {
+                      "component": "FooterLink",
+                      "props": {
+                        "label": "Store Locator",
+                        "href": "/store-locator"
+                      }
+                    },
+                    {
+                      "component": "FooterLink",
+                      "props": {
+                        "label": "Contact Us",
+                        "href": "/contact-us"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "component": "FooterColumn",
+                "props": {
+                  "title": "Customer Services"
+                },
+                "slots": {
+                  "items": [
+                    {
+                      "component": "FooterLink",
+                      "props": {
+                        "label": "My Account",
+                        "href": "/my-account"
+                      }
+                    },
+                    {
+                      "component": "FooterLink",
+                      "props": {
+                        "label": "Terms of Use",
+                        "href": "/terms-of-use"
+                      }
+                    },
+                    {
+                      "component": "FooterLink",
+                      "props": {
+                        "label": "Deliveries & Returns",
+                        "href": "/deliveries-returns"
+                      }
+                    },
+                    {
+                      "component": "FooterLink",
+                      "props": {
+                        "label": "Gift card",
+                        "href": "/gift-card"
+                      }
+                    }
+                  ]
+                }
+              }
+            ],
+            "bottomBar": {
+              "component": "FooterColumn",
+              "props": {
+                "title": ""
+              },
+              "slots": {
+                "items": [
+                  {
+                    "component": "FooterLink",
+                    "props": {
+                      "label": "\u00a9 2024 QODE INTERACTIVE, ALL RIGHTS RESERVED",
+                      "href": "https://qodeinteractive.com"
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        }
+      ]
+    },
+    "about": {
+      "id": "about",
+      "title": "About Us",
+      "url": "/about-us",
+      "uses": [
+        "Header",
+        "Section",
+        "Footer",
+        "GalleryStrip"
+      ],
+      "sections": [
+        {
+          "$ref": "home.sections[0]"
+        },
+        {
+          "id": "about-hero",
+          "component": "Section",
+          "slots": {
+            "header": {
+              "component": "SectionHeader",
+              "props": {
+                "kicker": "Our story",
+                "title": "From clay to collection",
+                "subtitle": "An inside look at how Bridge ceramics are made."
+              }
+            },
+            "body": {
+              "component": "GalleryStrip",
+              "slots": {
+                "items": [
+                  {
+                    "component": "Image",
+                    "props": {
+                      "assetId": "about-us-img-1-1"
+                    }
+                  },
+                  {
+                    "component": "Image",
+                    "props": {
+                      "assetId": "about-us-img-3"
+                    }
+                  },
+                  {
+                    "component": "Image",
+                    "props": {
+                      "assetId": "about-us-img-7"
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "$ref": "home.sections[-1]"
+        }
+      ]
+    },
+    "shop": {
+      "id": "shop",
+      "title": "Shop",
+      "url": "/shop",
+      "uses": [
+        "Header",
+        "Section",
+        "ProductGrid",
+        "Footer"
+      ],
+      "sections": [
+        {
+          "$ref": "home.sections[0]"
+        },
+        {
+          "id": "shop-grid",
+          "component": "Section",
+          "slots": {
+            "header": {
+              "component": "SectionHeader",
+              "props": {
+                "kicker": "Shop",
+                "title": "All ceramics",
+                "subtitle": "Browse every piece in the Bridge collection."
+              }
+            },
+            "body": {
+              "component": "ProductGrid",
+              "slots": {
+                "items": []
+              }
+            }
+          }
+        },
+        {
+          "$ref": "home.sections[-1]"
+        }
+      ]
+    },
+    "blog": {
+      "id": "blog",
+      "title": "Blog",
+      "url": "/blog",
+      "uses": [
+        "Header",
+        "Section",
+        "BlogGrid",
+        "Footer"
+      ],
+      "sections": [
+        {
+          "$ref": "home.sections[0]"
+        },
+        {
+          "id": "blog-list",
+          "component": "Section",
+          "slots": {
+            "header": {
+              "component": "SectionHeader",
+              "props": {
+                "kicker": "Journal",
+                "title": "Latest stories",
+                "subtitle": "News, events and inspiration from the studio."
+              }
+            },
+            "body": {
+              "component": "BlogGrid"
+            }
+          }
+        },
+        {
+          "$ref": "home.sections[-1]"
+        }
+      ]
+    },
+    "contact": {
+      "id": "contact",
+      "title": "Contact",
+      "url": "/contact",
+      "uses": [
+        "Header",
+        "Section",
+        "Footer"
+      ],
+      "sections": [
+        {
+          "$ref": "home.sections[0]"
+        },
+        {
+          "id": "contact-main",
+          "component": "Section",
+          "slots": {
+            "header": {
+              "component": "SectionHeader",
+              "props": {
+                "kicker": "Contact",
+                "title": "Visit our studio",
+                "subtitle": "Reach out to us for workshops, orders, or collaborations."
+              }
+            },
+            "body": {
+              "component": "Section",
+              "props": {
+                "backgroundColorToken": "color.background.page"
+              }
+            }
+          }
+        },
+        {
+          "$ref": "home.sections[-1]"
+        }
+      ]
+    }
+  }
+}

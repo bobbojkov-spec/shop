@@ -1,0 +1,301 @@
+BRIDGE513 – SEMANTIC HTML5 REWRITE (STRUCTURAL SKELETON)
+========================================================
+
+NOTE: This is a structural, semantic rewrite of the home page.
+Class names are illustrative; actual CSS framework/utility classes can be added later.
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bridge | Handmade Ceramics</title>
+  </head>
+
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <div class="header-branding">
+          <a href="/" class="site-logo">Bridge</a>
+        </div>
+
+        <nav class="site-nav" aria-label="Primary">
+          <ul class="nav-list">
+            <li class="nav-item"><a href="/">Home</a></li>
+            <li class="nav-item"><a href="/about-us">About Us</a></li>
+            <li class="nav-item"><a href="/our-stores">Our Stores</a></li>
+            <li class="nav-item"><a href="/shop">Shop</a></li>
+            <li class="nav-item"><a href="/blog">Blog</a></li>
+          </ul>
+        </nav>
+
+        <div class="header-actions">
+          <button class="icon-button" aria-label="Open search">
+            <!-- search icon -->
+          </button>
+
+          <a href="/cart" class="icon-button cart-button" aria-label="View cart">
+            <!-- cart icon -->
+            <span class="cart-count" aria-hidden="true">0</span>
+          </a>
+
+          <button
+            class="icon-button mobile-menu-toggle"
+            aria-label="Toggle navigation"
+            aria-expanded="false"
+            aria-controls="mobile-nav"
+          >
+            <!-- hamburger icon -->
+          </button>
+        </div>
+      </div>
+
+      <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile primary navigation" hidden>
+        <ul class="mobile-nav-list">
+          <li><a href="/">Home</a></li>
+          <li><a href="/about-us">About Us</a></li>
+          <li><a href="/our-stores">Our Stores</a></li>
+          <li><a href="/shop">Shop</a></li>
+          <li><a href="/blog">Blog</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <!-- HERO FEATURE STRIP -->
+      <section class="hero-feature-strip" aria-label="Featured themes">
+        <div class="container">
+          <div class="feature-grid">
+            <article class="feature-card">
+              <figure class="feature-media">
+                <img src="hero-sea.jpg" alt="Ceramic plates inspired by the sea" />
+              </figure>
+              <header class="feature-header">
+                <h2 class="feature-title">INSPIRED BY THE SEA</h2>
+              </header>
+              <p class="feature-text">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suscipit ultrices nunc.
+              </p>
+              <a href="/shop" class="feature-link">learn more</a>
+            </article>
+
+            <article class="feature-card">
+              <figure class="feature-media">
+                <img src="hero-love.jpg" alt="Handmade ceramics created with love" />
+              </figure>
+              <header class="feature-header">
+                <h2 class="feature-title">CREATED WITH LOVE</h2>
+              </header>
+              <p class="feature-text">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suscipit ultrices nunc.
+              </p>
+              <a href="/shop" class="feature-link">learn more</a>
+            </article>
+
+            <article class="feature-card">
+              <figure class="feature-media">
+                <img src="hero-nature.jpg" alt="Ceramic objects inspired by nature" />
+              </figure>
+              <header class="feature-header">
+                <h2 class="feature-title">TOUCHED BY THE NATURE</h2>
+              </header>
+              <p class="feature-text">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suscipit ultrices nunc.
+              </p>
+              <a href="/shop" class="feature-link">learn more</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- PRODUCT GRID SECTION -->
+      <section class="product-section" aria-labelledby="product-section-heading">
+        <div class="container">
+          <header class="section-header">
+            <p class="section-kicker">Featured pieces</p>
+            <h2 id="product-section-heading" class="section-title">Handmade ceramic favorites</h2>
+          </header>
+
+          <div class="product-grid" role="list">
+            <article class="product-card" role="listitem">
+              <button class="wishlist-button" aria-label="Add Rose Oval Plate to wishlist">
+                ♥
+              </button>
+
+              <figure class="product-media">
+                <img src="rose-oval-plate.jpg" alt="Rose Oval Plate" loading="lazy" />
+              </figure>
+
+              <div class="product-info">
+                <p class="product-title">Rose Oval Plate</p>
+                <p class="product-price">$300.00</p>
+                <button class="product-cta" type="button">Add to cart</button>
+              </div>
+            </article>
+
+            <!-- Additional product-card instances for Golden Decor, Ocean Plate, etc. -->
+          </div>
+
+          <footer class="section-footer">
+            <a href="/shop" class="button button-outline">VIEW ALL</a>
+          </footer>
+        </div>
+      </section>
+
+      <!-- DESIGNERS HIGHLIGHT SECTION -->
+      <section class="designers-section" aria-labelledby="designers-heading">
+        <div class="container designers-layout">
+          <div class="designers-text">
+            <header>
+              <p class="section-kicker">Behind the craft</p>
+              <h2 id="designers-heading" class="section-title">
+                MEET DESIGNERS EVA &amp; NINA
+              </h2>
+            </header>
+
+            <p class="section-body-text">
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget
+              dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes.
+            </p>
+
+            <a href="/about-us" class="button">READ MORE</a>
+          </div>
+
+          <figure class="designers-media">
+            <img src="designers-eva-nina.jpg" alt="Designers Eva and Nina in the ceramic studio" />
+          </figure>
+        </div>
+      </section>
+
+      <!-- BLOG PREVIEW SECTION -->
+      <section class="blog-preview" aria-labelledby="blog-preview-heading">
+        <div class="container">
+          <header class="section-header">
+            <p class="section-kicker">From our journal</p>
+            <h2 id="blog-preview-heading" class="section-title">Stories from the studio</h2>
+          </header>
+
+          <div class="blog-grid" role="list">
+            <article class="blog-card" role="listitem">
+              <figure class="blog-media">
+                <img src="blog-japan-ideas.jpg" alt="Handmade ceramic ideas from Japan" loading="lazy" />
+              </figure>
+              <div class="blog-content">
+                <h3 class="blog-title">Japan Design 2023: Handmade Ceramic Ideas</h3>
+                <p class="blog-meta">
+                  <span class="blog-author">Nina Marling</span>
+                  <time datetime="2023-12-14">14 December, 2023</time>
+                </p>
+              </div>
+            </article>
+
+            <!-- BlogCard 2 & 3 similar structure -->
+          </div>
+        </div>
+      </section>
+
+      <!-- WORKSHOP PROMO SECTION -->
+      <section class="workshop-section" aria-labelledby="workshop-heading">
+        <div class="container workshop-layout">
+          <div class="workshop-text">
+            <header>
+              <h2 id="workshop-heading" class="section-title">WORKSHOP IN OUR CERAMIC STUDIO</h2>
+              <p class="section-body-text">
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget
+                dolor. Aenean massa. Cum sociis natoque penatibus.
+              </p>
+            </header>
+
+            <a href="/contact" class="button button-primary">APPLY NOW</a>
+          </div>
+
+          <div class="workshop-gallery">
+            <figure class="workshop-thumb">
+              <img src="workshop-1.jpg" alt="People working in the ceramic studio" loading="lazy" />
+            </figure>
+            <!-- Additional small images: workshop-2.jpg, workshop-3.jpg, etc. -->
+          </div>
+        </div>
+      </section>
+
+      <!-- GALLERY STRIP / INSTAGRAM STYLE SECTION -->
+      <section class="gallery-strip" aria-label="Ceramic gallery">
+        <div class="container">
+          <div class="gallery-grid">
+            <figure class="gallery-item">
+              <img src="gallery-1.jpg" alt="Detail of a ceramic plate" loading="lazy" />
+            </figure>
+            <figure class="gallery-item">
+              <img src="gallery-2.jpg" alt="Stack of handmade mugs" loading="lazy" />
+            </figure>
+            <!-- Additional gallery-item elements -->
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-widgets">
+        <div class="container footer-grid">
+          <section class="footer-widget footer-search" aria-labelledby="footer-search-heading">
+            <h2 id="footer-search-heading" class="footer-heading">SEARCH</h2>
+            <form class="footer-search-form" action="/search" method="get">
+              <label class="sr-only" for="footer-search-input">Search for:</label>
+              <input id="footer-search-input" name="s" type="search" placeholder="Search for..." />
+            </form>
+          </section>
+
+          <section class="footer-widget footer-contact" aria-labelledby="footer-contact-heading">
+            <h2 id="footer-contact-heading" class="footer-heading">contact</h2>
+            <p class="footer-contact-item">
+              <a href="tel:+1123456789">+1123456789</a>
+            </p>
+            <p class="footer-contact-item">
+              <a href="https://www.google.com/maps" rel="noopener" target="_blank">
+                1316 Abbot Kinney Blvd. Copenhagen CA 90291
+              </a>
+            </p>
+          </section>
+
+          <section class="footer-widget footer-help" aria-labelledby="footer-help-heading">
+            <h2 id="footer-help-heading" class="footer-heading">Help</h2>
+            <ul class="footer-links">
+              <li><a href="/faqs">FAQ’s</a></li>
+              <li><a href="/pricing-plans">Pricing Plans</a></li>
+              <li><a href="/track-order">Track Your Order</a></li>
+              <li><a href="/returns">Returns</a></li>
+            </ul>
+          </section>
+
+          <section class="footer-widget footer-about" aria-labelledby="footer-about-heading">
+            <h2 id="footer-about-heading" class="footer-heading">About Us</h2>
+            <ul class="footer-links">
+              <li><a href="/our-story">Our Story</a></li>
+              <li><a href="/jobs">Job Opportunities</a></li>
+              <li><a href="/store-locator">Store Locator</a></li>
+              <li><a href="/contact-us">Contact Us</a></li>
+            </ul>
+          </section>
+
+          <section class="footer-widget footer-customer-service" aria-labelledby="footer-customer-heading">
+            <h2 id="footer-customer-heading" class="footer-heading">Customer Services</h2>
+            <ul class="footer-links">
+              <li><a href="/my-account">My Account</a></li>
+              <li><a href="/terms-of-use">Terms of Use</a></li>
+              <li><a href="/deliveries-returns">Deliveries &amp; Returns</a></li>
+              <li><a href="/gift-card">Gift card</a></li>
+            </ul>
+          </section>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="container">
+          <p class="footer-copy">
+            © 2024 <a href="https://qodeinteractive.com" rel="noopener" target="_blank">QODE INTERACTIVE</a>, ALL RIGHTS RESERVED
+          </p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

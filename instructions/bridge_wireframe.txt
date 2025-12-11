@@ -1,0 +1,191 @@
+BRIDGE513 – HOME PAGE WIREFRAME (TEXT-ONLY)
+==========================================
+
+Viewport assumptions:
+- Desktop: 1440px width
+- Tablet: 768–1024px width
+- Mobile: 360–480px width
+
+
+[HEADER – fixed at top]
+------------------------------------------------------------
+| LOGO (left)   | NAV (center)                | ICONS (right) |
+|               | Home | About | Stores ...   | [Search] [Cart]|
+------------------------------------------------------------
+
+- Desktop:
+  - Single horizontal bar
+  - Logo left-aligned
+  - Menu centered or left-to-center
+  - Search + Cart icons on the right
+- Mobile:
+  - Top row: Logo (left) + Hamburger (right)
+  - Full-screen slide-down menu when hamburger tapped
+
+
+[HERO FEATURE STRIP]
+============================================================
+| [Card 1] | [Card 2] | [Card 3]                            |
+|          |          |                                     |
+------------------------------------------------------------
+Card structure (each):
+  - Top: Image (ceramic/scene)
+  - Middle: Heading (e.g., "INSPIRED BY THE SEA")
+  - Bottom: short blurb + “learn more” text link/button
+
+Responsive:
+- Desktop: 3 cards side-by-side, equal width
+- Tablet: likely 2 cards per row
+- Mobile: single column, cards stacked with vertical spacing
+
+
+[PRODUCT GRID SECTION – FEATURED/SHOP PREVIEW]
+============================================================
+Section layout:
+------------------------------------------------------------
+|           [Product Grid Title / Intro]                    |
+------------------------------------------------------------
+| [Product 1] [Product 2] [Product 3] [Product 4]          |
+| [Product 5] [Product 6] ...                              |
+------------------------------------------------------------
+|                      [VIEW ALL]                          |
+------------------------------------------------------------
+
+Product card structure:
+- Top: Product image (square or portrait)
+- Top-left or top-right overlay: wishlist heart icon on hover
+- Below image:
+  - Product title (e.g., "Rose Oval Plate")
+  - Price (e.g., "$300.00")
+  - Add to cart button in text or bordered style
+
+Responsive:
+- Desktop: 3–4 items per row, equal width
+- Tablet: 2–3 per row
+- Mobile: 1–2 per row
+
+
+[DESIGNERS HIGHLIGHT SECTION]
+============================================================
+Approx layout:
+------------------------------------------------------------
+|          MEET DESIGNERS EVA & NINA                       |
+|          Short description paragraph                     |
+|          [READ MORE] button/link                         |
+------------------------------------------------------------
+
+Visual:
+- Could be center-aligned text block
+- Potential image either to the side or above/below text
+- Generous whitespace for editorial feel
+
+Responsive:
+- Desktop: text centered with wide margins
+- Mobile: full-width text, reduced font sizes
+
+
+[BLOG PREVIEW SECTION]
+============================================================
+------------------------------------------------------------
+|                BLOG SECTION TITLE (implicit)             |
+------------------------------------------------------------
+| [Blog Card 1]   [Blog Card 2]   [Blog Card 3]            |
+------------------------------------------------------------
+
+Blog card structure:
+- Top: thumbnail image (16:9 or 4:3)
+- Below:
+  - Post title (2–3 lines)
+  - Author name with avatar (e.g., “Nina Marling”)
+  - Date (e.g., "14 December, 2023")
+
+Responsive:
+- Desktop: 3 columns
+- Tablet: 2 columns
+- Mobile: 1 column stacked
+
+
+[WORKSHOP PROMO SECTION]
+============================================================
+------------------------------------------------------------
+|          WORKSHOP IN OUR CERAMIC STUDIO                  |
+|          Short descriptive text (1–2 lines)              |
+|          [APPLY NOW] primary button                      |
+------------------------------------------------------------
+| [Small decorative/workshop images in a strip or grid]    |
+------------------------------------------------------------
+
+- Acts as a strong CTA mid/late in the page
+- Likely uses a light or soft-colored background block
+
+
+[GALLERY STRIP / IMAGE STRIP]
+============================================================
+------------------------------------------------------------
+| [Img1] [Img2] [Img3] [Img4] ...                          |
+------------------------------------------------------------
+
+- Simple horizontal gallery, possibly equal-width images
+- May act as an Instagram-like feed or moodboard
+- On mobile: images wrap to multiple rows
+
+
+[FOOTER – WIDGET AREA]
+============================================================
+Top footer:
+------------------------------------------------------------
+| SEARCH       | contact        | Help            | About Us | Customer Services |
+---------------------------------------------------------------------------------
+| Input field  | Phone + addr   | Link1..LinkN    | Link1..N | Link1..N          |
+---------------------------------------------------------------------------------
+
+Columns example:
+1. SEARCH
+   - Heading: "SEARCH"
+   - Input: search field
+
+2. contact
+   - Phone: "+1123456789"
+   - Address link to Google Maps
+
+3. Help
+   - FAQ’s
+   - Pricing Plans
+   - Track Your Order
+   - Returns
+
+4. About Us
+   - Our Story
+   - Job Opportunities
+   - Store Locator
+   - Contact Us
+
+5. Customer Services
+   - My Account
+   - Terms of Use
+   - Deliveries & Returns
+   - Gift card
+
+
+[FOOTER BOTTOM BAR]
+============================================================
+------------------------------------------------------------
+| © 2024 QODE INTERACTIVE, ALL RIGHTS RESERVED             |
+------------------------------------------------------------
+
+- Centered copyright text
+- Link to qodeinteractive.com
+- Possibly smaller font size and muted color
+
+
+SCROLL & FLOW SUMMARY
+=====================
+1. HEADER (sticky) – always visible
+2. HERO FEATURE STRIP – key brand mood introduction
+3. PRODUCT GRID – commercial focus, early in scroll
+4. DESIGNERS HIGHLIGHT – storytelling + brand credibility
+5. BLOG PREVIEW – editorial credibility and SEO content
+6. WORKSHOP PROMO – strong CTA near mid-to-late scroll
+7. GALLERY STRIP – lifestyle & visual atmosphere
+8. FOOTER WIDGET AREA – navigation, contact, support
+9. FOOTER BOTTOM BAR – legal & credits
