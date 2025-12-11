@@ -75,7 +75,9 @@ export default function HeroSection() {
           {slides.map((slide, index) => (
             <div
               key={slide.id}
-              ref={(el) => (imageRefs.current[index] = el)}
+              ref={(el) => {
+                imageRefs.current[index] = el;
+              }}
               className={`hero-slide-image ${index === activeIndex ? "active" : ""} ${isTransitioning ? "transitioning" : ""}`}
             >
               <Image
