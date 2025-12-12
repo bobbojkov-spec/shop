@@ -109,7 +109,7 @@ export default function HeroSection() {
               onClick={() => goToSlide(index)}
               aria-label={`Go to slide ${index + 1}`}
             >
-              <span className="control-number">{index + 1}</span>
+              <span className="control-number">{String(index + 1).padStart(2, '0')}</span>
             </button>
           ))}
         </div>
