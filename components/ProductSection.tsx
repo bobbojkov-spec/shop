@@ -84,7 +84,7 @@ export default function ProductSection() {
                     <Link href={`/shop/product/${product.slug}`} className="product-name">
                       {product.name}
                     </Link>
-                <p className="product-price">{product.price}</p>
+                  <p className="product-price">€{product.price.replace('$', '').replace('USD', '').trim()}</p>
               </div>
             </article>
           ))}

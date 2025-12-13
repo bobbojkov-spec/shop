@@ -4,6 +4,8 @@ const nextConfig = {
   images: {
     unoptimized: false,
   },
+  // Exclude the root admin directory from build
+  pageExtensions: ['tsx', 'ts', 'jsx', 'js'],
 }
 
 module.exports = nextConfig

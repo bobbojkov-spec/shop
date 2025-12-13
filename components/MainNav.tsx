@@ -59,7 +59,7 @@ export default function MainNav() {
           <Link href="/">Home</Link>
           <Link href="/about-us">About Us</Link>
           <Link href="/our-stores">Our Stores</Link>
-          <Link href="/shop/shop">Shop</Link>
+          <Link href="/shop">Shop</Link>
           <Link href="/blog">Blog</Link>
         </nav>
 
@@ -200,7 +200,7 @@ export default function MainNav() {
         <Link href="/">Home</Link>
         <Link href="/about-us">About Us</Link>
         <Link href="/our-stores">Our Stores</Link>
-        <Link href="/shop/shop">Shop</Link>
+        <Link href="/shop">Shop</Link>
         <Link href="/blog">Blog</Link>
       </nav>
 
@@ -243,7 +243,7 @@ export default function MainNav() {
                 <Link href="/" onClick={() => setSidebarOpen(false)}>HOME</Link>
                 <Link href="/about-us" onClick={() => setSidebarOpen(false)}>ABOUT US</Link>
                 <Link href="/our-stores" onClick={() => setSidebarOpen(false)}>OUR STORES</Link>
-                <Link href="/shop/shop" onClick={() => setSidebarOpen(false)}>SHOP</Link>
+                <Link href="/shop" onClick={() => setSidebarOpen(false)}>SHOP</Link>
                 <Link href="/blog" onClick={() => setSidebarOpen(false)}>BLOG</Link>
               </nav>
             </div>

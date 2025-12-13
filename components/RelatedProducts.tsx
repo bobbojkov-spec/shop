@@ -60,3 +60,4 @@ export default function RelatedProducts({ currentProductSlug }: RelatedProductsP
   );
 }
 
+

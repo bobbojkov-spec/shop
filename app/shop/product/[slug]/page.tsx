@@ -3,19 +3,22 @@ import ProductDetail from '@/components/ProductDetail'
 import RelatedProducts from '@/components/RelatedProducts'
 import Footer from '@/components/Footer'
 import BackToTop from '@/components/BackToTop'
+import { use } from 'react'
 
 interface ProductPageProps {
-  params: {
+  params: Promise<{
     slug: string
-  }
+  }>
 }
 
 export default function ProductPage({ params }: ProductPageProps) {
+  const { slug } = use(params)
+  
   return (
     <div>
       <MainNav />
-      <ProductDetail slug={params.slug} />
-      <RelatedProducts currentProductSlug={params.slug} />
+      <ProductDetail slug={slug} />
+      <RelatedProducts currentProductSlug={slug} />
       <Footer />
       <BackToTop />
     </div>

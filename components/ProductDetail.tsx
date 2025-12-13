@@ -1,21 +1,85 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { getProductBySlug } from "@/lib/products";
 import "./product-detail.css";
 
 interface ProductDetailProps {
   slug: string;
 }
 
+interface Product {
+  id: string;
+  name: string;
+  slug: string;
+  description: string;
+  price: number;
+  currency: string;
+  images: string[];
+  sku?: string;
+  category?: string;
+  tags?: string[];
+  additionalInfo?: {
+    weight?: string;
+    dimensions?: string;
+    material?: string;
+    careInstructions?: string;
+  };
+}
+
 export default function ProductDetail({ slug }: ProductDetailProps) {
-  const product = getProductBySlug(slug);
+  const [product, setProduct] = useState<Product | null>(null);
+  const [loading, setLoading] = useState(true);
   const [selectedImage, setSelectedImage] = useState(0);
   const [quantity, setQuantity] = useState(1);
   const [activeTab, setActiveTab] = useState("description");
   const [isWishlisted, setIsWishlisted] = useState(false);
+
+  useEffect(() => {
+    const fetchProduct = async () => {
+      try {
+        setLoading(true);
+        // Try to fetch by slug first, then by ID if slug is numeric
+        let productId = slug;
+        if (isNaN(Number(slug))) {
+          // If slug is not numeric, we need to find product by slug
+          // For now, fetch all and filter, or use ID
+          const response = await fetch('/api/products');
+          const result = await response.json();
+          if (result.data && Array.isArray(result.data)) {
+            const found = result.data.find((p: Product) => p.slug === slug);
+            if (found) {
+              productId = found.id;
+            }
+          }
+        }
+        
+        const response = await fetch(`/api/products/${productId}`);
+        const result = await response.json();
+        
+        if (result.data) {
+          setProduct(result.data);
+        }
+      } catch (error) {
+        console.error('Error fetching product:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProduct();
+  }, [slug]);
+
+  if (loading) {
+    return (
+      <section className="product-detail-section">
+        <div className="product-detail-container">
+          <p>Loading product...</p>
+        </div>
+      </section>
+    );
+  }
 
   if (!product) {
     return (
@@ -32,29 +96,31 @@ export default function ProductDetail({ slug }: ProductDetailProps) {
       <div className="product-detail-container">
         <div className="product-detail-layout">
           {/* Left: Thumbnail Images */}
-          <div className="product-thumbnails">
-            {product.images.map((image: string, index: number) => (
-              <button
-                key={index}
-                className={`thumbnail-button ${index === selectedImage ? "active" : ""}`}
-                onClick={() => setSelectedImage(index)}
-                aria-label={`View image ${index + 1}`}
-              >
-                <Image
-                  src={image}
-                  alt={`${product.name} view ${index + 1}`}
-                  width={100}
-                  height={100}
-                  className="thumbnail-image"
-                />
-              </button>
-            ))}
-          </div>
+          {product.images && product.images.length > 0 && (
+            <div className="product-thumbnails">
+              {product.images.map((image: string, index: number) => (
+                <button
+                  key={index}
+                  className={`thumbnail-button ${index === selectedImage ? "active" : ""}`}
+                  onClick={() => setSelectedImage(index)}
+                  aria-label={`View image ${index + 1}`}
+                >
+                  <Image
+                    src={image}
+                    alt={`${product.name} view ${index + 1}`}
+                    width={100}
+                    height={100}
+                    className="thumbnail-image"
+                  />
+                </button>
+              ))}
+            </div>
+          )}
 
           {/* Center: Main Product Image */}
           <div className="product-main-image">
             <Image
-              src={product.images[selectedImage]}
+              src={product.images?.[selectedImage] || '/images/placeholder.jpg'}
               alt={product.name}
               width={600}
               height={600}
@@ -68,10 +134,9 @@ export default function ProductDetail({ slug }: ProductDetailProps) {
             <h1 className="product-detail-title">{product.name}</h1>
             
             <div className="product-detail-price">
-              {product.onSale && product.originalPrice && (
-                <span className="original-price">{product.originalPrice}</span>
-              )}
-              <span className="current-price">{product.price}</span>
+              <span className="current-price">
+                €{typeof product.price === 'number' ? product.price.toFixed(2) : product.price}
+              </span>
             </div>
 
             {/* Quantity and Add to Cart in one row */}
@@ -156,43 +221,65 @@ export default function ProductDetail({ slug }: ProductDetailProps) {
                   <div className="tab-content">
                     <p>{product.description}</p>
                     <div className="product-meta">
-                      <div className="product-meta-item">
-                        <strong>SKU:</strong> {product.sku}
-                      </div>
-                      <div className="product-meta-divider"></div>
-                      <div className="product-meta-item">
-                        <strong>Category:</strong> {product.category}
-                      </div>
-                      <div className="product-meta-divider"></div>
-                      <div className="product-meta-item">
-                        <strong>Tags:</strong> {product.tags.join(", ")}
-                      </div>
+                      {product.sku && (
+                        <>
+                          <div className="product-meta-item">
+                            <strong>SKU:</strong> {product.sku}
+                          </div>
+                          <div className="product-meta-divider"></div>
+                        </>
+                      )}
+                      {product.category && (
+                        <>
+                          <div className="product-meta-item">
+                            <strong>Category:</strong> {product.category}
+                          </div>
+                          <div className="product-meta-divider"></div>
+                        </>
+                      )}
+                      {product.tags && product.tags.length > 0 && (
+                        <div className="product-meta-item">
+                          <strong>Tags:</strong> {Array.isArray(product.tags) ? product.tags.join(", ") : product.tags}
+                        </div>
+                      )}
                     </div>
                   </div>
                 )}
 
                 {activeTab === "additional" && (
                   <div className="tab-content">
-                    <table className="additional-info-table">
-                      <tbody>
-                        <tr>
-                          <th>Weight</th>
-                          <td>{product.additionalInfo.weight}</td>
-                        </tr>
-                        <tr>
-                          <th>Dimensions</th>
-                          <td>{product.additionalInfo.dimensions}</td>
-                        </tr>
-                        <tr>
-                          <th>Material</th>
-                          <td>{product.additionalInfo.material}</td>
-                        </tr>
-                        <tr>
-                          <th>Care Instructions</th>
-                          <td>{product.additionalInfo.care}</td>
-                        </tr>
-                      </tbody>
-                    </table>
+                    {product.additionalInfo ? (
+                      <table className="additional-info-table">
+                        <tbody>
+                          {product.additionalInfo.weight && (
+                            <tr>
+                              <th>Weight</th>
+                              <td>{product.additionalInfo.weight}</td>
+                            </tr>
+                          )}
+                          {product.additionalInfo.dimensions && (
+                            <tr>
+                              <th>Dimensions</th>
+                              <td>{product.additionalInfo.dimensions}</td>
+                            </tr>
+                          )}
+                          {product.additionalInfo.material && (
+                            <tr>
+                              <th>Material</th>
+                              <td>{product.additionalInfo.material}</td>
+                            </tr>
+                          )}
+                          {product.additionalInfo.careInstructions && (
+                            <tr>
+                              <th>Care Instructions</th>
+                              <td>{product.additionalInfo.careInstructions}</td>
+                            </tr>
+                          )}
+                        </tbody>
+                      </table>
+                    ) : (
+                      <p>No additional information available.</p>
+                    )}
                   </div>
                 )}
 
