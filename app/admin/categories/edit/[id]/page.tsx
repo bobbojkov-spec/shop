@@ -6,13 +6,13 @@ import { Category } from "@/lib/types/admin";
 import { use } from "react";
 
 interface EditPageProps {
-  params: Promise<{
+  params: {
     id: string;
-  }>;
+  };
 }
 
 export default function CategoryEdit({ params }: EditPageProps) {
-  const { id } = use(params);
+  const { id } = params;
   const { formProps, saveButtonProps } = useForm<Category>({
     resource: "categories",
     id,

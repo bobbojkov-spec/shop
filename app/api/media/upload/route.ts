@@ -6,9 +6,9 @@ import { existsSync } from 'fs';
 /**
  * POST /api/media/upload - Upload and process images
  * Creates:
- * - Original image (stored in /public/images/)
- * - Small thumbnail (150x150) for admin/listings
- * - Medium thumbnail (400x400) for gallery/start page
+ * - Original image (big version - stored in /public/images/)
+ * - Middle version (800x800) for product pages
+ * - Small thumbnail (300x300) for listings/admin
  */
 export async function POST(request: NextRequest) {
   try {
@@ -40,8 +40,8 @@ export async function POST(request: NextRequest) {
     const ext = originalName.split('.').pop()?.toLowerCase() || 'jpg';
     
     const originalFilename = `${nameWithoutExt}-${timestamp}.${ext}`;
-    const smallThumbFilename = `${nameWithoutExt}-${timestamp}-150x150.${ext}`;
-    const mediumThumbFilename = `${nameWithoutExt}-${timestamp}-400x400.${ext}`;
+    const middleFilename = `${nameWithoutExt}-${timestamp}-800x800.${ext}`;
+    const thumbnailFilename = `${nameWithoutExt}-${timestamp}-300x300.${ext}`;
     
     const imagesDir = join(process.cwd(), 'public', 'images');
     
@@ -55,35 +55,35 @@ export async function POST(request: NextRequest) {
     await writeFile(originalPath, buffer);
     
     const originalUrl = `/images/${originalFilename}`;
-    let smallThumbUrl = originalUrl;
-    let mediumThumbUrl = originalUrl;
+    let middleUrl = originalUrl;
+    let thumbnailUrl = originalUrl;
     
     // Generate thumbnails if sharp is available
     if (sharp) {
       try {
         const image = sharp(buffer);
         
-        // Generate small thumbnail (150x150) for admin/listings
-        const smallThumbPath = join(imagesDir, smallThumbFilename);
+        // Generate middle version (800x800) for product pages
+        const middlePath = join(imagesDir, middleFilename);
         await image
           .clone()
-          .resize(150, 150, {
-            fit: 'cover',
-            position: 'center',
+          .resize(800, 800, {
+            fit: 'inside',
+            withoutEnlargement: true,
           })
-          .toFile(smallThumbPath);
-        smallThumbUrl = `/images/${smallThumbFilename}`;
+          .toFile(middlePath);
+        middleUrl = `/images/${middleFilename}`;
         
-        // Generate medium thumbnail (400x400) for gallery/start page
-        const mediumThumbPath = join(imagesDir, mediumThumbFilename);
+        // Generate small thumbnail (300x300) for listings/admin
+        const thumbnailPath = join(imagesDir, thumbnailFilename);
         await image
           .clone()
-          .resize(400, 400, {
+          .resize(300, 300, {
             fit: 'cover',
             position: 'center',
           })
-          .toFile(mediumThumbPath);
-        mediumThumbUrl = `/images/${mediumThumbFilename}`;
+          .toFile(thumbnailPath);
+        thumbnailUrl = `/images/${thumbnailFilename}`;
       } catch (error) {
         console.error('Error generating thumbnails:', error);
         // Continue with original URLs if thumbnail generation fails
@@ -92,9 +92,9 @@ export async function POST(request: NextRequest) {
     
     return NextResponse.json({
       data: {
-        original: originalUrl,
-        smallThumb: smallThumbUrl,
-        mediumThumb: mediumThumbUrl,
+        original: originalUrl, // Big version
+        middle: middleUrl,      // Middle version (800x800)
+        thumbnail: thumbnailUrl, // Small version (300x300)
         filename: originalFilename,
       },
     });

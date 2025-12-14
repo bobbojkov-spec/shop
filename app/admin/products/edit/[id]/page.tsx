@@ -5,14 +5,14 @@ import { Edit, useForm } from "@refinedev/antd";
 import { Form, Input, InputNumber, Switch, Select, Space, Button, Checkbox, Row, Col, Tabs, Image, Modal, Upload, message } from "antd";
 import { PlusOutlined, MinusCircleOutlined, EditOutlined, UploadOutlined } from "@ant-design/icons";
 import { Product } from "@/lib/types/admin";
-import { useEffect, use, useState } from "react";
+import { useEffect, useState } from "react";
 import { useInvalidate, useUpdate } from "@refinedev/core";
 import type { UploadFile } from "antd";
 
 interface EditPageProps {
-  params: Promise<{
+  params: {
     id: string;
-  }>;
+  };
 }
 
 interface Category {
@@ -22,23 +22,24 @@ interface Category {
 }
 
 export default function ProductEdit({ params }: EditPageProps) {
-  const { id } = use(params);
-  const { formProps, saveButtonProps, queryResult, form } = useForm<Product>({
+  const { id } = params;
+  const { formProps, saveButtonProps, form } = useForm<Product>({
     resource: "products",
     id,
   });
   const invalidate = useInvalidate();
-  const { mutate: updateProduct, isPending: isUpdating } = useUpdate<Product>();
+  const { mutate: updateProduct } = useUpdate<Product>();
+  const [isUpdating, setIsUpdating] = useState(false);
 
-  const isLoading = queryResult?.isLoading ?? false;
-  // The data provider already unwraps the data, so queryResult.data is the product directly
-  // But useForm provides data in formProps.initialValues when queryResult.data is undefined
-  const productData = queryResult?.data || formProps?.initialValues;
+  const isLoading = false;
+  // The data provider already unwraps the data, so formProps?.initialValues is the product directly
+  // But useForm provides data in formProps.initialValues when formProps?.initialValues is undefined
+  const productData = formProps?.initialValues as any;
   
   console.log('📦 Raw queryResult:', {
-    hasData: !!queryResult?.data,
-    dataType: typeof queryResult?.data,
-    dataKeys: queryResult?.data && typeof queryResult.data === 'object' ? Object.keys(queryResult.data) : [],
+    hasData: !!formProps?.initialValues,
+    dataType: typeof formProps?.initialValues,
+    dataKeys: formProps?.initialValues && typeof formProps?.initialValues === 'object' ? Object.keys(formProps?.initialValues) : [],
     productDataPrice: productData?.price,
     productDataStockQuantity: productData?.stockQuantity,
     productDataAdditionalInfo: productData?.additionalInfo,
@@ -50,6 +51,7 @@ export default function ProductEdit({ params }: EditPageProps) {
   const [loadingCategories, setLoadingCategories] = useState(true);
   const [activeTab, setActiveTab] = useState('info');
   const [imageModalVisible, setImageModalVisible] = useState(false);
+  const [isThumbnailEdit, setIsThumbnailEdit] = useState(false);
   const [imagePool, setImagePool] = useState<Array<{ id: string; filename: string; url: string }>>([]);
   const [loadingImages, setLoadingImages] = useState(false);
   const [usdPrice, setUsdPrice] = useState<string>('');
@@ -210,8 +212,18 @@ export default function ProductEdit({ params }: EditPageProps) {
         // Set meta fields
         valuesToSet.metaTitle = productData.metaTitle || '';
         valuesToSet.metaDescription = productData.metaDescription || '';
+        valuesToSet.seoKeywords = productData.seoKeywords || '';
+        valuesToSet.ogTitle = productData.ogTitle || '';
+        valuesToSet.ogDescription = productData.ogDescription || '';
+        valuesToSet.ogImageUrl = productData.ogImageUrl || '';
+        valuesToSet.canonicalUrl = productData.canonicalUrl || '';
         form.setFieldValue('metaTitle', productData.metaTitle || '');
         form.setFieldValue('metaDescription', productData.metaDescription || '');
+        form.setFieldValue('seoKeywords', productData.seoKeywords || '');
+        form.setFieldValue('ogTitle', productData.ogTitle || '');
+        form.setFieldValue('ogDescription', productData.ogDescription || '');
+        form.setFieldValue('ogImageUrl', productData.ogImageUrl || '');
+        form.setFieldValue('canonicalUrl', productData.canonicalUrl || '');
         
         // Set all values - use setFieldsValue with forceUpdate
         form.setFieldsValue(valuesToSet);
@@ -247,7 +259,7 @@ export default function ProductEdit({ params }: EditPageProps) {
           
           // Verify what was actually set after a delay
           setTimeout(() => {
-            const actualValues = form.getFieldsValue();
+            const actualValues = form.getFieldsValue() as any;
             console.log('✅ VERIFIED form values:', {
               price: actualValues.price,
               weight: actualValues.weight,
@@ -349,11 +361,17 @@ export default function ProductEdit({ params }: EditPageProps) {
       // Ensure meta fields are included
       metaTitle: values.metaTitle || '',
       metaDescription: values.metaDescription || '',
+      seoKeywords: values.seoKeywords || '',
+      ogTitle: values.ogTitle || '',
+      ogDescription: values.ogDescription || '',
+      ogImageUrl: values.ogImageUrl || '',
+      canonicalUrl: values.canonicalUrl || '',
     };
 
     console.log('💾 Transformed values to save:', transformedValues);
 
     // Use Refine's update mutation
+    setIsUpdating(true);
     return new Promise((resolve, reject) => {
       updateProduct(
         {
@@ -363,6 +381,7 @@ export default function ProductEdit({ params }: EditPageProps) {
         },
         {
           onSuccess: (data) => {
+            setIsUpdating(false);
             console.log('✅ Save successful:', data);
             message.success('Product updated successfully');
             
@@ -375,11 +394,12 @@ export default function ProductEdit({ params }: EditPageProps) {
             
             // Refetch the current product data
             setSaveError(null); // Clear error on success
-            queryResult?.refetch();
+            ;
             
             resolve(data);
           },
           onError: (error: any) => {
+            setIsUpdating(false);
             setSaveError(error);
             console.error('❌ Save failed:', error);
             const errorMessage = (error && typeof error === 'object' && error?.response?.data?.error) || (error?.message) || 'Failed to update product';
@@ -392,14 +412,23 @@ export default function ProductEdit({ params }: EditPageProps) {
     });
   };
 
-  // Handle image selection from pool - ALWAYS add as FIRST image
+  // Handle image selection from pool
   const handleSelectImage = (imageUrl: string) => {
     const currentImages = form.getFieldValue('images') || [];
     const imageArray = Array.isArray(currentImages) ? currentImages.filter((img: string) => img && img.trim() !== '') : [];
-    // Put selected image at the beginning (for thumbnail and first gallery image)
-    form.setFieldsValue({ images: [imageUrl, ...imageArray] });
+    
+    if (isThumbnailEdit) {
+      // Replace first image (thumbnail)
+      form.setFieldsValue({ images: [imageUrl, ...imageArray.slice(1)] });
+      message.success('Thumbnail updated');
+    } else {
+      // Add as last image (product gallery)
+      form.setFieldsValue({ images: [...imageArray, imageUrl] });
+      message.success('Image added to gallery');
+    }
+    
     setImageModalVisible(false);
-    message.success('Image added as first image');
+    setIsThumbnailEdit(false);
   };
 
   // Prepare initial values with flattened additionalInfo - FORCE include these fields
@@ -435,6 +464,11 @@ export default function ProductEdit({ params }: EditPageProps) {
     // Set meta fields (handle null/undefined)
     metaTitle: productData.metaTitle || '',
     metaDescription: productData.metaDescription || '',
+    seoKeywords: productData.seoKeywords || '',
+    ogTitle: productData.ogTitle || '',
+    ogDescription: productData.ogDescription || '',
+    ogImageUrl: productData.ogImageUrl || '',
+    canonicalUrl: productData.canonicalUrl || '',
     // Don't set currency here - let it be set by the form field or useEffect
   } : formProps.initialValues;
 
@@ -490,11 +524,58 @@ export default function ProductEdit({ params }: EditPageProps) {
               size="small"
               icon={productData?.images?.[0] ? <EditOutlined /> : <UploadOutlined />}
               onClick={() => {
+                setIsThumbnailEdit(true);
                 fetchImagePool();
                 setImageModalVisible(true);
               }}
             >
               {productData?.images?.[0] ? 'Edit' : 'Add'}
+            </Button>
+            <Button
+              size="small"
+              icon={<UploadOutlined />}
+              onClick={() => {
+                const input = document.createElement('input');
+                input.type = 'file';
+                input.accept = 'image/*';
+                input.onchange = async (e) => {
+                  const file = (e.target as HTMLInputElement).files?.[0];
+                  if (!file) return;
+                  
+                  try {
+                    const formData = new FormData();
+                    formData.append('file', file);
+                    
+                    message.loading({ content: 'Uploading image...', key: 'upload', duration: 0 });
+                    
+                    const response = await fetch('/api/media/upload', {
+                      method: 'POST',
+                      body: formData,
+                    });
+                    
+                    if (!response.ok) {
+                      throw new Error('Upload failed');
+                    }
+                    
+                    const result = await response.json();
+                    const imageUrl = result.data?.original || '';
+                    
+                    if (imageUrl) {
+                      // Replace first image (thumbnail)
+                      const currentImages = form.getFieldValue('images') || [];
+                      const imageArray = Array.isArray(currentImages) ? currentImages.filter((img: string) => img && img.trim() !== '') : [];
+                      form.setFieldsValue({ images: [imageUrl, ...imageArray.slice(1)] });
+                      message.success({ content: 'Thumbnail updated', key: 'upload' });
+                    }
+                  } catch (error) {
+                    console.error('Upload error:', error);
+                    message.error({ content: 'Failed to upload image', key: 'upload' });
+                  }
+                };
+                input.click();
+              }}
+            >
+              Upload
             </Button>
           </div>
         </Space>
@@ -510,11 +591,25 @@ export default function ProductEdit({ params }: EditPageProps) {
         <Tabs
           activeKey={activeTab}
           onChange={setActiveTab}
+          tabBarStyle={{ 
+            backgroundColor: '#f5f5f5', 
+            padding: '0 16px',
+            margin: 0,
+            borderRadius: '4px 4px 0 0',
+            borderBottom: '1px solid #d9d9d9'
+          }}
+          style={{ 
+            border: '1px solid #d9d9d9', 
+            borderRadius: '4px',
+            backgroundColor: '#ffffff',
+            overflow: 'hidden'
+          }}
           items={[
             {
               key: 'info',
               label: 'Product Info',
               children: (
+                <div style={{ backgroundColor: '#ffffff', padding: '24px' }}>
                 <>
                   <Form.Item
                     label="Name"
@@ -653,12 +748,14 @@ export default function ProductEdit({ params }: EditPageProps) {
                     <Switch />
                   </Form.Item>
                 </>
+                </div>
               ),
             },
             {
               key: 'images',
               label: 'Product Images',
               children: (
+                <div style={{ backgroundColor: '#ffffff', padding: '24px' }}>
                 <>
                   <Form.Item
                     noStyle
@@ -713,6 +810,7 @@ export default function ProductEdit({ params }: EditPageProps) {
                               <Button
                                 type="default"
                                 onClick={() => {
+                                  setIsThumbnailEdit(false);
                                   fetchImagePool();
                                   setImageModalVisible(true);
                                 }}
@@ -742,12 +840,12 @@ export default function ProductEdit({ params }: EditPageProps) {
                                   const imageUrl = result.data?.original || result.data?.smallThumb || '';
                                   
                                   if (imageUrl) {
-                                    // ALWAYS add as FIRST image (for thumbnail and gallery)
+                                    // Add as LAST image (for product gallery)
                                     const currentImages = getFieldValue('images') || [];
                                     const imageArray = Array.isArray(currentImages) ? currentImages.filter((img: string) => img && img.trim() !== '') : [];
-                                    // Put new image at the beginning
-                                    form.setFieldsValue({ images: [imageUrl, ...imageArray] });
-                                    message.success('Image uploaded and added as first image');
+                                    // Put new image at the end
+                                    form.setFieldsValue({ images: [...imageArray, imageUrl] });
+                                    message.success('Image uploaded and added to gallery');
                                   }
                                   
                                   onSuccess?.(result);
@@ -810,7 +908,7 @@ export default function ProductEdit({ params }: EditPageProps) {
                           </Space>
                           
                           {/* Hidden Form.List to store image URLs */}
-                          <Form.List name="images" style={{ display: 'none' }}>
+                          <div style={{ display: 'none' }}><Form.List name="images">
                             {(fields, { add, remove }) => (
                               <>
                                 {fields.map(({ key, name, ...restField }) => (
@@ -825,33 +923,155 @@ export default function ProductEdit({ params }: EditPageProps) {
                                 ))}
                               </>
                             )}
-                          </Form.List>
+                          </Form.List></div>
                         </>
                       );
                     }}
                   </Form.Item>
                 </>
+                </div>
               ),
             },
             {
               key: 'seo',
               label: 'Product SEO',
               children: (
+                <div style={{ backgroundColor: '#ffffff', padding: '24px' }}>
                 <>
+                  <div style={{ marginBottom: 16, padding: 12, backgroundColor: '#f5f5f5', borderRadius: 4 }}>
+                    <Space>
+                      <Button
+                        type="default"
+                        onClick={async () => {
+                          try {
+                            console.log('🚀 Starting SEO auto-generation for product:', id);
+                            message.loading({ content: 'Generating SEO data...', key: 'seo-generate', duration: 0 });
+                            
+                            const response = await fetch(`/api/products/${id}/seo/auto-generate`, {
+                              method: 'POST',
+                            });
+                            
+                            console.log('📡 Response status:', response.status, response.statusText);
+                            
+                            if (!response.ok) {
+                              const errorData = await response.json().catch(() => ({ error: 'Unknown error' }));
+                              console.error('❌ API error:', errorData);
+                              throw new Error(errorData.error || `Failed to generate SEO: ${response.status}`);
+                            }
+                            
+                            const result = await response.json();
+                            console.log('✅ SEO data received:', result);
+                            
+                            if (result.seoData) {
+                              const seoData = result.seoData;
+                              console.log('📝 Setting form values:', seoData);
+                              
+                              form.setFieldsValue({
+                                metaTitle: seoData.metaTitle || '',
+                                metaDescription: seoData.metaDescription || '',
+                                seoKeywords: seoData.seoKeywords || '',
+                                ogTitle: seoData.ogTitle || '',
+                                ogDescription: seoData.ogDescription || '',
+                                ogImageUrl: seoData.ogImageUrl || '',
+                                canonicalUrl: seoData.canonicalUrl || '',
+                              });
+                              
+                              form.validateFields();
+                              message.success({ content: 'SEO data generated successfully!', key: 'seo-generate' });
+                            } else {
+                              console.warn('⚠️ No seoData in response:', result);
+                              message.warning({ content: 'Generated but no data returned', key: 'seo-generate' });
+                            }
+                          } catch (error) {
+                            console.error('❌ Error generating SEO:', error);
+                            const errorMessage = error instanceof Error ? error.message : 'Failed to generate SEO data';
+                            message.error({ content: errorMessage, key: 'seo-generate' });
+                          }
+                        }}
+                      >
+                        Auto Generate SEO
+                      </Button>
+                    </Space>
+                  </div>
+
                   <Form.Item
-                    label="SEO Meta Title"
+                    label="SEO Meta Title (30-60 chars)"
                     name="metaTitle"
+                    help={(() => {
+                      const title = form.getFieldValue('metaTitle') || '';
+                      const length = title.length;
+                      if (length < 30) return 'Too short (min 30)';
+                      if (length > 60) return 'Too long (max 60)';
+                      if (length >= 50) return `Optimal (${length}/60)`;
+                      return `Good (${length}/60)`;
+                    })()}
                   >
-                    <Input placeholder="SEO title" />
+                    <Input 
+                      placeholder="e.g., Brown Jar - Handmade Ceramics | Handcrafted Pottery" 
+                      maxLength={60}
+                      showCount
+                    />
                   </Form.Item>
 
                   <Form.Item
-                    label="SEO Meta Description"
+                    label="SEO Meta Description (120-160 chars)"
                     name="metaDescription"
+                    help={(() => {
+                      const desc = form.getFieldValue('metaDescription') || '';
+                      const length = desc.length;
+                      if (length < 120) return 'Too short (min 120)';
+                      if (length > 160) return 'Too long (max 160)';
+                      if (length >= 150) return `Optimal (${length}/160)`;
+                      return `Good (${length}/160)`;
+                    })()}
                   >
-                    <Input.TextArea rows={2} placeholder="SEO description" />
+                    <Input.TextArea 
+                      rows={3} 
+                      placeholder="e.g., Discover our handmade brown ceramic jar. Handcrafted pottery perfect for storage..." 
+                      maxLength={160}
+                      showCount
+                    />
+                  </Form.Item>
+
+                  <Form.Item
+                    label="SEO Keywords (comma-separated, 5-12 keywords)"
+                    name="seoKeywords"
+                  >
+                    <Input placeholder="e.g., brown jar, handmade ceramics, pottery, storage jar, ceramic vase" />
+                  </Form.Item>
+
+                  <Form.Item
+                    label="OG Title"
+                    name="ogTitle"
+                  >
+                    <Input placeholder="e.g., Brown Jar - Handmade Ceramics | Handcrafted Pottery" />
+                  </Form.Item>
+
+                  <Form.Item
+                    label="OG Description"
+                    name="ogDescription"
+                  >
+                    <Input.TextArea 
+                      rows={2} 
+                      placeholder="e.g., Discover our handmade brown ceramic jar. Perfect for storage..." 
+                    />
+                  </Form.Item>
+
+                  <Form.Item
+                    label="OG Image URL"
+                    name="ogImageUrl"
+                  >
+                    <Input placeholder="https://example.com/images/product-og.jpg" />
+                  </Form.Item>
+
+                  <Form.Item
+                    label="Canonical URL"
+                    name="canonicalUrl"
+                  >
+                    <Input placeholder="https://www.example.com/products/brown-jar" />
                   </Form.Item>
                 </>
+                </div>
               ),
             },
           ]}

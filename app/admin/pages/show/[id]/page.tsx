@@ -10,13 +10,13 @@ const { Title: PageTitle, Text: PageText } = Typography;
 const { Title, Text } = Typography;
 
 interface ShowPageProps {
-  params: Promise<{
+  params: {
     id: string;
-  }>;
+  };
 }
 
 export default function PageShow({ params }: ShowPageProps) {
-  const { id } = use(params);
+  const { id } = params;
   const { query } = useShow<PageContent>({
     resource: "pages",
     id,

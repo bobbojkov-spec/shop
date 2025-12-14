@@ -184,7 +184,7 @@ export default function HeroSlidesList() {
           title="Active"
           width={80}
           render={(active: boolean) => (
-            <Switch checked={active === true || active === 1} disabled size="small" />
+            <Switch checked={!!active} disabled size="small" />
           )}
         />
         <Table.Column

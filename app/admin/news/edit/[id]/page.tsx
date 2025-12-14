@@ -7,13 +7,13 @@ import dayjs from "dayjs";
 import { use } from "react";
 
 interface EditPageProps {
-  params: Promise<{
+  params: {
     id: string;
-  }>;
+  };
 }
 
 export default function NewsEdit({ params }: EditPageProps) {
-  const { id } = use(params);
+  const { id } = params;
   const { formProps, saveButtonProps } = useForm<NewsArticle>({
     resource: "news",
     id,

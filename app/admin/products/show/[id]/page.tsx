@@ -4,18 +4,17 @@ import { Show } from "@refinedev/antd";
 import { useShow } from "@refinedev/core";
 import { Typography, Image, Tag, Space, Row, Col } from "antd";
 import { Product } from "@/lib/types/admin";
-import { use } from "react";
 
 const { Title, Text } = Typography;
 
 interface ShowPageProps {
-  params: Promise<{
+  params: {
     id: string;
-  }>;
+  };
 }
 
 export default function ProductShow({ params }: ShowPageProps) {
-  const { id } = use(params);
+  const { id } = params;
   const { query } = useShow<Product>({
     resource: "products",
     id,

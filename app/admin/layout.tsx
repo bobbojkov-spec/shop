@@ -15,6 +15,10 @@ import {
   MenuUnfoldOutlined,
   PictureOutlined,
   FileTextOutlined,
+  FileImageOutlined,
+  SettingOutlined,
+  BookOutlined,
+  BgColorsOutlined,
 } from "@ant-design/icons";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -70,6 +74,42 @@ export default function AdminLayout({
       key: "/admin/categories",
       icon: <AppstoreOutlined />,
       label: collapsed && !isMobile ? null : <Link href="/admin/categories">Categories</Link>,
+    },
+    {
+      key: "/admin/orders",
+      icon: <ShoppingCartOutlined />,
+      label: collapsed && !isMobile ? null : <Link href="/admin/orders">Orders</Link>,
+    },
+    {
+      type: "divider" as const,
+    },
+    {
+      key: "/admin/hero-slides",
+      icon: <BgColorsOutlined />,
+      label: collapsed && !isMobile ? null : <Link href="/admin/hero-slides">Hero Slides</Link>,
+    },
+    {
+      key: "/admin/media",
+      icon: <FileImageOutlined />,
+      label: collapsed && !isMobile ? null : <Link href="/admin/media">Media</Link>,
+    },
+    {
+      key: "/admin/news",
+      icon: <FileTextOutlined />,
+      label: collapsed && !isMobile ? null : <Link href="/admin/news">News</Link>,
+    },
+    {
+      key: "/admin/pages",
+      icon: <BookOutlined />,
+      label: collapsed && !isMobile ? null : <Link href="/admin/pages">Pages</Link>,
+    },
+    {
+      type: "divider" as const,
+    },
+    {
+      key: "/admin/settings",
+      icon: <SettingOutlined />,
+      label: collapsed && !isMobile ? null : <Link href="/admin/settings">Settings</Link>,
     },
     {
       type: "divider" as const,
@@ -181,4 +221,3 @@ export default function AdminLayout({
     </RefineKbarProvider>
   );
 }
-

@@ -6,13 +6,13 @@ import { HeroSlide } from "@/lib/types/admin";
 import { use } from "react";
 
 interface EditPageProps {
-  params: Promise<{
+  params: {
     id: string;
-  }>;
+  };
 }
 
 export default function HeroSlideEdit({ params }: EditPageProps) {
-  const { id } = use(params);
+  const { id } = params;
   const { formProps, saveButtonProps } = useForm<HeroSlide>({
     resource: "hero-slides",
     id,

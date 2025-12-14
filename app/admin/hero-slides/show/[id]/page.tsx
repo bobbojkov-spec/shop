@@ -9,13 +9,13 @@ import { use } from "react";
 const { Title, Text } = Typography;
 
 interface ShowPageProps {
-  params: Promise<{
+  params: {
     id: string;
-  }>;
+  };
 }
 
 export default function HeroSlideShow({ params }: ShowPageProps) {
-  const { id } = use(params);
+  const { id } = params;
   const { query } = useShow<HeroSlide>({
     resource: "hero-slides",
     id,

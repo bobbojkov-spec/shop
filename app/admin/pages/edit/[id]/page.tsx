@@ -6,13 +6,13 @@ import { PageContent } from "@/lib/types/admin";
 import { use } from "react";
 
 interface EditPageProps {
-  params: Promise<{
+  params: {
     id: string;
-  }>;
+  };
 }
 
 export default function PageEdit({ params }: EditPageProps) {
-  const { id } = use(params);
+  const { id } = params;
   const { formProps, saveButtonProps } = useForm<PageContent>({
     resource: "pages",
     id,
